@@ -12,7 +12,7 @@ namespace PBL3.Models
     public int Id { get; set; }
     [Required]
     public string RoleName { get; set; } = "";
-    public DateTime CreatedAt { get; set; } = DateTime.Now;
+    public DateTime CreatedAt { get; set; } = new DateTime(2023, 5, 15);
     public User? User { get; set; }
   }
 }

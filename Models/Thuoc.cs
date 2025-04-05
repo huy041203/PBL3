@@ -1,5 +1,6 @@
 ﻿using PBL3.Constant;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PBL3.Models
 {
@@ -9,6 +10,7 @@ namespace PBL3.Models
     public int Id { get; set; }
     [Required]
     public string TenThuoc { get; set; } = "";
+    [Column(TypeName = "decimal(18,2)")]
     public decimal Gia { get; set; }
     public string MoTa { get; set; } = "";
     public DateTime NgaySanXuat { get; set; }
