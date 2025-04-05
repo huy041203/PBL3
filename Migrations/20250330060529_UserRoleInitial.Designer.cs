@@ -11,8 +11,8 @@ using PBL3.Data;
 namespace PBL3.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250326151201_UserInitialCreate")]
-    partial class UserInitialCreate
+    [Migration("20250330060529_UserRoleInitial")]
+    partial class UserRoleInitial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -66,9 +66,12 @@ namespace PBL3.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Password")
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Username")
                         .IsRequired()
@@ -76,51 +79,26 @@ namespace PBL3.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("RoleId")
+                        .IsUnique();
+
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("PBL3.Models.UserRole", b =>
-                {
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RoleId")
-                        .HasColumnType("int");
-
-                    b.HasKey("UserId", "RoleId");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("UserRoles");
-                });
-
-            modelBuilder.Entity("PBL3.Models.UserRole", b =>
-                {
-                    b.HasOne("PBL3.Models.Role", "Role")
-                        .WithMany("UserRoles")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PBL3.Models.User", "User")
-                        .WithMany("UserRoles")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Role");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("PBL3.Models.Role", b =>
-                {
-                    b.Navigation("UserRoles");
                 });
 
             modelBuilder.Entity("PBL3.Models.User", b =>
                 {
-                    b.Navigation("UserRoles");
+                    b.HasOne("PBL3.Models.Role", "Role")
+                        .WithOne("User")
+                        .HasForeignKey("PBL3.Models.User", "RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("PBL3.Models.Role", b =>
+                {
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }
