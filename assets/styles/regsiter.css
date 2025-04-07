@@ -1,0 +1,146 @@
+
+.register {
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* min-height: 100vh; */
+  background-color: #eaf6ff;
+}
+
+.register__container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 960px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.register__image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  background-color: #d9f0ff;
+  flex-direction: column;
+}
+
+.register__image-content {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.register__logo {
+  margin:40px 0px 20px 40px;
+  display: flex;
+}
+
+.register__logo-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #002147;
+  flex-direction: column;
+}
+
+.register__logo-image {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+
+.register__content {
+  flex: 1;
+  padding: 0px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.register__title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #002147;
+  text-align: center;
+}
+
+.register__form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.register__form-group {
+  flex: 1 1 calc(50% - 15px);
+  display: flex;
+  flex-direction: column;
+}
+
+.register__input {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.register__input:focus {
+  border-color: #007bff;
+}
+
+.register__radio-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.register__button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  flex: 1 1 100%;
+}
+
+.register__button:hover {
+  background-color: #0056b3;
+}
+
+.register__login {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.register__login-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.register__login-link:hover {
+  text-decoration: underline;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .register__container {
+    flex-direction: column;
+  }
+
+  .register__content {
+    padding: 20px;
+  }
+
+  .register__image {
+    display: none;
+  }
+}

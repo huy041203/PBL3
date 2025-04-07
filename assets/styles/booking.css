@@ -1,0 +1,214 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+} */
+
+/* BEM structure */
+.booking {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  max-width: 960px;
+  margin: 0 auto;
+  /* padding: 20px; */
+}
+
+/* Search component */
+.booking__search {
+  background-color: #cae5ff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.search__form {
+  display: flex;
+  justify-content: center;
+  max-width: 700px;
+  margin: 0 auto;
+  border: none;
+}
+
+.search__input {
+  flex-grow: 1;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.search__button {
+  background-color: #57c6c9;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.search__button:hover {
+  background-color: #45b5b8;
+}
+
+/* Content area */
+.booking__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Doctor list column */
+.booking__doctors {
+  flex: 1;
+  min-width: 300px;
+}
+
+.booking__heading {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Doctor cards */
+.doctor-card {
+  display: flex;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.doctor-card__image {
+  width: 120px;
+  height: 150px; 
+  overflow: hidden;
+  /* background-color: #57c6c9; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.doctor-card__image img {
+  width: 100%;
+  height: auto;
+}
+
+.doctor-card__info {
+  flex-grow: 1;
+}
+
+.doctor-card__name {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.doctor-card__specialty {
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.doctor-card__actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.doctor-card__button {
+  background-color: #57c6c9;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.doctor-card__label {
+  color: #666;
+  font-size: 14px;
+  padding: 8px 0;
+}
+
+.doctor-card__price {
+  color: #57c6c9;
+  font-size: 14px;
+}
+
+/* Availability column */
+.booking__availability {
+  margin-top: 30px;
+  height: 500px;
+  width: 300px;
+  background-color: #cae5ff;
+  padding: 20px;
+  border-radius: 10px;
+  
+}
+
+.availability__title {
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.availability__days {
+  margin-top: 40px;
+  border-radius: 10px;
+  padding: 25px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.availability__day {
+  display: flex;
+  align-items: center;
+}
+
+.availability__checkbox {
+  margin-right: 15px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.availability__label {
+  font-size: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .booking__content {
+      flex-direction: column;
+  }
+
+  .booking__availability {
+      width: 100%;
+      order: -1;
+      margin-bottom: 20px;
+  }
+
+  .search__form {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .search__button {
+      margin-left: 0;
+  }
+}

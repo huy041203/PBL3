@@ -1,0 +1,65 @@
+<div class="modal" id="register-modal">
+  <div class="register">
+    <div class="register__container">
+      <div class="register__image">
+        <div class="register__logo">
+          <img src="../assets/img/Logo.png" alt="Medicare Clinic Logo" class="register__logo-image">
+          <h1 class="register__logo-text">
+            <span class="register__logo-text--medicare">Medicare</span><br>
+            <span class="register__logo-text--clinic">Clinic</span>
+          </h1>
+        </div>
+        <img src="../assets/img/Doctor_Banner.png" alt="Doctor" class="register__image-content">
+      </div>
+      <div class="register__content">
+        <!-- <div class="register__logo">
+        <img src="../assets/img/Logo.png" alt="Medicare Clinic Logo" class="register__logo-image">
+        <h1 class="register__logo-text">
+          <span class="register__logo-text--medicare">Medicare</span><br>
+          <span class="register__logo-text--clinic">Clinic</span>
+        </h1>
+      </div> -->
+        <h2 class="register__title">Đăng ký</h2>
+        <form class="register__form">
+          <div class="register__form-group">
+            <input type="text" class="register__input" placeholder="Họ và tên" required>
+          </div>
+          <div class="register__form-group">
+            <div class="register__radio-group">
+              <label><input type="radio" name="gender" value="male" required> Nam</label>
+              <label><input type="radio" name="gender" value="female" required> Nữ</label>
+            </div>
+          </div>
+          <div class="register__form-group">
+            <input type="date" class="register__input" placeholder="Ngày sinh" required>
+          </div>
+          <div class="register__form-group">
+            <input type="text" class="register__input" placeholder="Số CCCD" required>
+          </div>
+          <div class="register__form-group">
+            <input type="text" class="register__input" placeholder="Địa chỉ cư trú" required>
+          </div>
+          <div class="register__form-group">
+            <input type="email" class="register__input" placeholder="Địa chỉ email" required>
+          </div>
+          <div class="register__form-group">
+            <input type="text" class="register__input" placeholder="Số điện thoại" required>
+          </div>
+          <div class="register__form-group">
+            <input type="password" class="register__input" placeholder="Mật khẩu" required>
+          </div>
+          <div class="register__form-group">
+            <input type="password" class="register__input" placeholder="Nhập lại mật khẩu" required>
+          </div>
+          <button type="submit" class="register__button">Đăng ký</button>
+        </form>
+        <p class="register__login">
+          Bạn đã có tài khoản? <a href="login.html" class="register__login-link" id="back-to-login">Đăng nhập</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  @import url('../assets/styles/regsiter.css');
+</style>
