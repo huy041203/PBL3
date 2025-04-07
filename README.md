@@ -1,12 +1,16 @@
-﻿Hệ thống Quản lý Y tế - PBL3 (đang update)
+﻿# Hệ thống Quản lý Y tế - PBL3
+
 <div align="center">
 <img src="https://img.shields.io/badge/ASP.NET%20Core-6.0-blue" alt="ASP.NET Core 6.0">
 <img src="https://img.shields.io/badge/Entity%20Framework%20Core-6.0-green" alt="Entity Framework Core 6.0">
 <img src="https://img.shields.io/badge/SQL%20Server-2019-red" alt="SQL Server 2019">
 <img src="https://img.shields.io/badge/Bootstrap-5.0-purple" alt="Bootstrap 5.0">
 </div>
-📋 Tổng quan
+
+## 📋 Tổng quan
+
 Hệ thống quản lý y tế toàn diện hỗ trợ việc quản lý thông tin bệnh nhân, bác sĩ, lịch hẹn khám và hồ sơ y tế. Hệ thống được phân quyền cho nhiều đối tượng sử dụng bao gồm: Admin, Bác sĩ, Bệnh nhân và Nhân viên y tế.
+
 <div align="center">
 <table>
 <tr>
@@ -35,16 +39,22 @@ Hệ thống quản lý y tế toàn diện hỗ trợ việc quản lý thông 
 </tr>
 </table>
 </div>
-🏗️ Kiến trúc dự án
+
+## 🏗️ Kiến trúc dự án
+
 Dự án sử dụng kiến trúc N-Layer với Repository Pattern và Service Pattern:
+
 <div align="center">
 <img src="https://miro.medium.com/max/1400/16zKYkZLTvTDxN9KpVx0Stw.png" width="600" alt="N-Layer Architecture">
 </div>
-Presentation Layer: MVC Controllers và Views
-Business Logic Layer: Services xử lý logic nghiệp vụ
-Data Access Layer: Repositories giao tiếp với Database
-Data Layer: Entity Framework Core và SQL Server
+
+- **Presentation Layer**: MVC Controllers và Views
+- **Business Logic Layer**: Services xử lý logic nghiệp vụ
+- **Data Access Layer**: Repositories giao tiếp với Database
+- **Data Layer**: Entity Framework Core và SQL Server
+
 ## 📁 Cấu trúc thư mục
+
 ```plaintext
 PBL3/
 ├── Controllers/                    # Xử lý request từ người dùng
@@ -113,7 +123,9 @@ PBL3/
 ├── Program.cs                      # Entry point
 └── appsettings.json                # Cấu hình ứng dụng
 ```
-✨ Chức năng chính
+
+## ✨ Chức năng chính
+
 <div align="center">
 <table>
 <tr>
@@ -154,43 +166,68 @@ PBL3/
 </tr>
 </table>
 </div>
-🛠️ Công nghệ sử dụng
-Backend:
-ASP.NET Core MVC 9.0
-Entity Framework Core 9.0.3
-SQL Server 2019
-Repository Pattern
-Unit of Work Pattern
-Cookie-based Authentication
-Frontend:
-Razor Views
-HTML5, CSS3, JavaScript
-Bootstrap 5.0
-jQuery
-🚀 Cài đặt và chạy
-Yêu cầu hệ thống
-.NET 6.0 SDK
-SQL Server 2019
-Visual Studio 2022 (Khuyến nghị)
-Các bước cài đặt
+
+## 🛠️ Công nghệ sử dụng
+
+**Backend:**
+- ASP.NET Core MVC 9.0
+- Entity Framework Core 9.0.3
+- SQL Server 2019
+- Repository Pattern
+- Unit of Work Pattern
+- Cookie-based Authentication
+
+**Frontend:**
+- Razor Views
+- HTML5, CSS3, JavaScript
+- Bootstrap 5.0
+- jQuery
+
+## 🚀 Cài đặt và chạy
+
+### Yêu cầu hệ thống
+- .NET 6.0 SDK
+- SQL Server 2019
+- Visual Studio 2022 (Khuyến nghị)
+
+### Các bước cài đặt
+
 1. Clone repository:
+   ```
    git clone https://github.com/yourusername/PBL3.git
    cd PBL3
+   ```
+
 2. Cấu hình connection string:
-Mở file appsettings.json và cập nhật connection string:
-    "ConnectionStrings": {
-     "DefaultConnection": "Server=YOUR_SERVER;Database=PBL3;Trusted_Connection=True;MultipleActiveResultSets=true"
-        }
+   Mở file appsettings.json và cập nhật connection string:
+   ```json
+   {
+     "ConnectionStrings": {
+       "DefaultConnection": "Server=YOUR_SERVER;Database=PBL3;Trusted_Connection=True;MultipleActiveResultSets=true"
+     }
+   }
+   ```
+
 3. Chạy migration để tạo database:
-    dotnet ef database update
-4. Khởi chạy:
-    dotnet run
+   ```
+   dotnet ef database update
+   ```
+
+4. Khởi chạy:
+   ```
+   dotnet run
+   ```
+
 5. Truy cập ứng dụng: Mở trình duyệt và truy cập https://localhost:7136
-📜 License
+
+## 📜 License
+
 Copyright © 2024 - PBL3 Team
-🤝 Nhóm phát triển
-Vương Phạm Ngọc Huy
-Nguyễn Thị Thùy Linh
+
+## 🤝 Nhóm phát triển
+- Vương Phạm Ngọc Huy
+- Nguyễn Thị Thùy Linh
+
 <div align="center">
 <p>Phát triển bởi Nhóm PBL3 - 2025</p>
 </div>
