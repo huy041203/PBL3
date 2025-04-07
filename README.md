@@ -44,7 +44,8 @@ Presentation Layer: MVC Controllers và Views
 Business Logic Layer: Services xử lý logic nghiệp vụ
 Data Access Layer: Repositories giao tiếp với Database
 Data Layer: Entity Framework Core và SQL Server
-📁 Cấu trúc thư mục
+## 📁 Cấu trúc thư mục
+```plaintext
 PBL3/
 ├── Controllers/                    # Xử lý request từ người dùng
 │   ├── AccountController.cs        # Xử lý đăng nhập/đăng ký
@@ -111,6 +112,7 @@ PBL3/
 │
 ├── Program.cs                      # Entry point
 └── appsettings.json                # Cấu hình ứng dụng
+```
 ✨ Chức năng chính
 <div align="center">
 <table>
