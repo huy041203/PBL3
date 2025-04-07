@@ -17,25 +17,29 @@ Hệ thống quản lý y tế toàn diện hỗ trợ việc quản lý thông 
 <td align="center"><b>🧑‍⚕️ Bác sĩ</b></td>
 <td align="center"><b>👨‍💼 Admin</b></td>
 <td align="center"><b>🏥 Bệnh nhân</b></td>
-<td align="center"><b>👩‍⚕️ Nhân viên Y tế</b></td>
+<td align="center"><b>👩‍⚕️ Chuyên viên y tế</b></td>
 </tr>
 <tr>
-<td>Quản lý lịch khám</td>
+<td>Quản lý thông tin cá nhân</td>
 <td>Quản lý người dùng</td>
+<td>Quản lý thông tin cá nhân</td>
+<td>Quản lý thông tin cá nhân</td>
+</tr>
+<tr>
+<td>Ghi kết quả khám/ xét nghiệm </td>
+<td>Quản lý bệnh án</td>
+<td>Xem hồ sơ bệnh án</td>
+<td>Upload kết quả xét nghiệm</td>
+</tr>
+<tr>
+<td>Tạo lịch khám cá nhân</td>
+<td>Quản lý lịch khám</td>
 <td>Đặt lịch khám</td>
-<td>Quản lý xét nghiệm</td>
 </tr>
 <tr>
-<td>Kê đơn thuốc</td>
-<td>Quản lý khoa</td>
-<td>Xem hồ sơ y tế</td>
-<td>Hỗ trợ bệnh nhân</td>
-</tr>
-<tr>
-<td>Chẩn đoán bệnh</td>
-<td>Báo cáo thống kê</td>
-<td>Xem đơn thuốc</td>
-<td>Nhập liệu y tế</td>
+   <td>Kê đơn thuốc</td>
+   <td>Quản lý danh sách thuốc</td>
+   <td>Xem đơn thuốc</td>
 </tr>
 </table>
 </div>
