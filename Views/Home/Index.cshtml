@@ -1,8 +1,250 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<section class="slider">
+  <div class="slider__background">
+    <img src="~/img/slider_background.png" alt="Slider Background">
+  </div>
+  <div class="slider__content">
+    <div class="slider__text">
+      <h1 class="slider__title">MEDICARE</h1>
+      <p class="slider__slogan">Trao sức khỏe, nhận niềm tin</p>
+      <p class="slider__description">
+        Medicare cung cấp dịch vụ khám chữa bệnh toàn diện, từ khám tổng quát, chuyên khoa đến xét nghiệm và tư vấn sức
+        khỏe.
+        Với đội ngũ bác sĩ giàu kinh nghiệm và trang thiết bị hiện đại, chúng tôi cam kết chăm sóc tận tâm, đảm bảo sức
+        khỏe vững vàng cho bạn và gia đình.
+        <a href="#">Tìm hiểu thêm</a>
+      </p>
+      <button class="slider__button">Đặt lịch ngay</button>
+    </div>
+    <div class="slider__image">
+      <img src="~/img/Doctor_Banner.png" alt="Doctor Image">
+    </div>
+  </div>
+</section>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+
+<container class="container">
+  <section class="services">
+    <div class="services__background"></div> <!-- Thanh nền xanh nhạt -->
+    <div class="services__content">
+      <div class="services__header">
+        <div class="services__icon">
+          <img src="~/img/Icon_Heading.png" alt="Plus Icon">
+        </div>
+        <h2 class="services__title">DỊCH VỤ</h2>
+      </div>
+      <div class="services__list">
+        <div class="services__item">
+          <img src="~/img/blood-test.png" alt="Xét nghiệm" class="services__image">
+          <p class="services__name">Xét nghiệm</p>
+        </div>
+        <div class="services__item">
+          <img src="~/img/doctor-dichvu.png" alt="Chuẩn đoán" class="services__image">
+          <p class="services__name">Chuẩn đoán</p>
+        </div>
+        <div class="services__item">
+          <img src="~/img/doctor-consultation.png" alt="Tư vấn sức khỏe" class="services__image">
+          <p class="services__name">Tư vấn sức khỏe</p>
+        </div>
+        <div class="services__item">
+          <img src="~/img/pills-dichvu.png" alt="Khám chuyên khoa" class="services__image">
+          <p class="services__name">Khám chuyên khoa</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <!-- HTML Code -->
+  <div class="services__detail">
+    <!-- Phần Xét nghiệm -->
+    <div class="services__detail-item">
+      <div class="services__detail-content">
+        <h3 class="services__detail-title">XÉT NGHIỆM NHANH CHÓNG CHÍNH XÁC</h3>
+        <ul class="services__detail-list">
+          <li class="services__detail-point">Công nghệ hiện đại</li>
+          <li class="services__detail-point">Đội ngũ chuyên viên y tế chuyên nghiệp, giàu kinh nghiệm</li>
+          <li class="services__detail-point">Đa dạng loại xét nghiệm: máu, chụp X-quang, siêu âm, nội soi...</li>
+          <li class="services__detail-point">Nhận kết quả nhanh chóng</li>
+        </ul>
+      </div>
+      <div class="services__detail-image">
+        <img src="~/img/xet-nghiem.jpg" alt="Xét nghiệm" class="services__detail-img">
+      </div>
+    </div>
+
+    <!-- Phần Giá chỉ -->
+    <div class="services__detail-pricing services__detail-item--reverse">
+      <div class="services__detail-price">
+        <h3 class="services__detail-price-title">GIÁ CHỈ TỪ 80.000 Đ</h3>
+        <div class="services__detail-price-icon">
+          <img src="~/images/medical-icon.png" alt="Medical Icon" class="services__detail-icon">
+        </div>
+      </div>
+      <div class="services__detail-image services__detail-image--right">
+        <img src="~/img/xet-nghiem.jpg" alt="Khám bệnh" class="services__detail-img">
+      </div>
+    </div>
+
+    <!-- Phần Tư vấn -->
+    <div class="services__detail-item">
+      <div class="services__detail-content">
+        <h3 class="services__detail-title">ĐỒNG HÀNH CÙNG BẠN TƯ VẤN SỨC KHỎE</h3>
+        <ul class="services__detail-list">
+          <li class="services__detail-point">Tư vấn trực tiếp, giải đáp nhanh chóng, hỗ trợ tận tâm</li>
+          <li class="services__detail-point">Tuyệt đối bảo mật thông tin</li>
+          <li class="services__detail-point">Đội ngũ bác sĩ chuyên môn cao</li>
+          <li class="services__detail-point">Đa dạng chuyên khoa</li>
+        </ul>
+      </div>
+      <div class="services__detail-image">
+        <img src="~/img/xet-nghiem.jpg" alt="Tư vấn sức khỏe" class="services__detail-img">
+      </div>
+    </div>
+
+    <!-- Phần Đặt lịch -->
+    <div class="services__detail-booking">
+      <div class="services__detail-image services__detail-image--left">
+        <img src="~/img/xet-nghiem.jpg" alt="Tư vấn sức khỏe" class="services__detail-img">
+      </div>
+      <div class="services__detail-action">
+        <a href="#" class="services__detail-button">Đặt lịch ngay</a>
+      </div>
+    </div>
+
+    <!-- Phần Tư vấn -->
+    <div class="services__detail-item">
+      <div class="services__detail-content">
+        <h3 class="services__detail-title">ĐỒNG HÀNH CÙNG BẠN TƯ VẤN SỨC KHỎE</h3>
+        <ul class="services__detail-list">
+          <li class="services__detail-point">Tư vấn trực tiếp, giải đáp nhanh chóng, hỗ trợ tận tâm</li>
+          <li class="services__detail-point">Tuyệt đối bảo mật thông tin</li>
+          <li class="services__detail-point">Đội ngũ bác sĩ chuyên môn cao</li>
+          <li class="services__detail-point">Đa dạng chuyên khoa</li>
+        </ul>
+      </div>
+      <div class="services__detail-image">
+        <img src="~/img/xet-nghiem.jpg" alt="Tư vấn sức khỏe" class="services__detail-img">
+      </div>
+    </div>
+
+    <!-- Phần Đặt lịch -->
+    <div class="services__detail-booking">
+      <div class="services__detail-image services__detail-image--left">
+        <img src="~/img/xet-nghiem.jpg" alt="Tư vấn sức khỏe" class="services__detail-img">
+      </div>
+      <div class="services__detail-action">
+        <a href="#" class="services__detail-button">Đặt lịch ngay</a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <section class="services">
+    <div class="services__background"></div> <!-- Thanh nền xanh nhạt -->
+    <div class="services__content">
+      <div class="services__header">
+        <div class="services__icon">
+          <img src="~/img/Icon_Heading.png" alt="Plus Icon">
+        </div>
+        <h2 class="services__title">CHUYÊN KHOA</h2>
+      </div>
+      <div class="services__list">
+        <div class="services__item">
+          <img src="~/img/xuong_khop.png" alt="Xuong khop" class="services__image">
+          <p class="services__name">Xương khớp</p>
+        </div>
+        <div class="services__item">
+          <img src="~/img/phoi.png" alt="Ho hap" class="services__image">
+          <p class="services__name">Hô hấp</p>
+        </div>
+        <div class="services__item">
+          <img src="~/img/eye.png" alt="Mat" class="services__image">
+          <p class="services__name">Mắt</p>
+        </div>
+        <div class="services__item">
+          <img src="~/img/tim_mach.png" alt="Tim mach" class="services__image">
+          <p class="services__name">Tim mạch</p>
+        </div>
+        <div class="services__item">
+          <img src="~/img/rang_ham_mat.png" alt="Rang" class="services__image">
+          <p class="services__name">Răng hàm mặt</p>
+        </div>
+        <div class="services__item">
+          <img src="~/img/da_lieu.png" alt="Da lieu" class="services__image">
+          <p class="services__name">Da liễu</p>
+        </div>
+        <div class="services__item">
+          <img src="~/img/tai_mui_hong.png" alt="Tai-Mũi-HọngHọng" class="services__image">
+          <p class="services__name">Tai-Mũi-Họng</p>
+        </div>
+        <div class="services__item">
+          <img src="~/img/tieu_hoa.png" alt="Tieu hoa" class="services__image">
+          <p class="services__name">Tiêu hóa</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="doctors">
+    <div class="doctors__header">
+      <div class="doctors__icon">
+        <img src="~/img/Icon_Heading.png" alt="Plus Icon">
+      </div>
+      <h2 class="doctors__title">TOP BÁC SĨ NỔI BẬT</h2>
+    </div>
+    <div class="doctors__list">
+      <div class="doctors__item">
+        <img src="~/img/Group 215.png" alt="Doctor 1" class="doctors__image">
+        <p class="doctors__name">TS. BS Tăng Hà Nam</p>
+        <p class="doctors__specialty">Cơ - Xương - Khớp</p>
+        <button class="doctors__button">Đặt lịch bác sĩ</button>
+      </div>
+      <div class="doctors__item">
+        <img src="~/img/Group 215.png" alt="Doctor 2" class="doctors__image">
+        <p class="doctors__name">TS. BS Nguyễn Văn A</p>
+        <p class="doctors__specialty">Tim mạch</p>
+        <button class="doctors__button">Đặt lịch bác sĩ</button>
+      </div>
+      <div class="doctors__item">
+        <img src="~/img/Group 215.png" alt="Doctor 3" class="doctors__image">
+        <p class="doctors__name">TS. BS Lê Thị B</p>
+        <p class="doctors__specialty">Hô hấp</p>
+        <button class="doctors__button">Đặt lịch bác sĩ</button>
+      </div>
+      <div class="doctors__item">
+        <img src="~/img/Group 215.png" alt="Doctor 3" class="doctors__image">
+        <p class="doctors__name">TS. BS Lê Thị B</p>
+        <p class="doctors__specialty">Hô hấp</p>
+        <button class="doctors__button">Đặt lịch bác sĩ</button>
+      </div>
+      <div class="doctors__item">
+        <img src="~/img/Group 215.png" alt="Doctor 1" class="doctors__image">
+        <p class="doctors__name">TS. BS Tăng Hà Nam</p>
+        <p class="doctors__specialty">Cơ - Xương - Khớp</p>
+        <button class="doctors__button">Đặt lịch bác sĩ</button>
+      </div>
+      <div class="doctors__item">
+        <img src="~/img/Group 215.png" alt="Doctor 2" class="doctors__image">
+        <p class="doctors__name">TS. BS Nguyễn Văn A</p>
+        <p class="doctors__specialty">Tim mạch</p>
+        <button class="doctors__button">Đặt lịch bác sĩ</button>
+      </div>
+      <div class="doctors__item">
+        <img src="~/img/Group 215.png" alt="Doctor 3" class="doctors__image">
+        <p class="doctors__name">TS. BS Lê Thị B</p>
+        <p class="doctors__specialty">Hô hấp</p>
+        <button class="doctors__button">Đặt lịch bác sĩ</button>
+      </div>
+      <div class="doctors__item">
+        <img src="~/img/Group 215.png" alt="Doctor 3" class="doctors__image">
+        <p class="doctors__name">TS. BS Lê Thị B</p>
+        <p class="doctors__specialty">Hô hấp</p>
+        <button class="doctors__button">Đặt lịch bác sĩ</button>
+      </div>
+      <!-- Add more doctors as needed -->
+    </div>
+  </section>
+</container>

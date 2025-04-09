@@ -1,0 +1,481 @@
+﻿/* Slider Section */
+.slider {
+  position: relative;
+  overflow: hidden;
+  /* padding: 50px 0; */
+  margin-top: 76px;
+}
+
+
+.slider__background img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  /* transform: scale(1, 0.90); */
+  /* opacity: 0.2; Làm mờ nền */
+}
+
+.slider__content {
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0px auto;
+  padding: 0 20px; /* Cách mép trái/phải */
+}
+
+.slider__text {
+  margin-top: 100px;
+  flex: 1;
+  max-width: 600px;
+  color: #002147;
+}
+
+.slider__title {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.slider__slogan {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.slider__description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+  .slider__description a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+    .slider__description a:hover {
+      text-decoration: underline;
+    }
+
+.slider__button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+  .slider__button:hover {
+    background-color: #0056b3;
+  }
+
+.slider__image {
+  flex: 1;
+  text-align: center;
+  margin-top: 20px;
+}
+
+  .slider__image img {
+    /* transform: scale(0.85);
+  max-width: 100%;
+  height: auto; */
+    width: 85%;
+    height: auto;
+  }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .slider__content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .slider__text {
+    margin-bottom: 20px;
+  }
+
+  .slider__image img {
+    max-width: 80%;
+  }
+}
+
+
+/* Dịch Vụ Section */
+.services {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  background-color: #d9f0ff; /* Màu xanh đậm */
+  padding: 10px 20px 70px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Thanh nền xanh nhạt */
+.services__background {
+  position: absolute;
+  top: 0;
+  left: -100%; /* Bắt đầu từ ngoài màn hình bên trái */
+  width: 100%;
+  height: 100%;
+  background-color: #c5e9ff; /* Màu xanh nhạt hơn */
+  z-index: 1; /* Đặt z-index thấp hơn nội dung */
+  transform: translateX(0);
+  transition: transform 1s ease-out; /* Hiệu ứng chuyển động */
+}
+
+.services__content {
+  position: relative;
+  z-index: 2; /* Đặt z-index cao hơn background để nội dung luôn hiển thị trên cùng */
+}
+
+.services--visible .services__background {
+  transform: translateX(100%); /* Di chuyển từ trái sang phải */
+}
+
+.services__icon img {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 5px;
+}
+
+.services__title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #002147;
+  margin-bottom: 50px;
+}
+
+.services__list {
+  margin: 0 auto;
+  max-width: 940px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.services__item {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 180px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+  .services__item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+
+.services__image {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.services__name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #002147;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .services__list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .services__item {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* CSS Code */
+.services__detail {
+  margin: 60px auto;
+  max-width: 940px;
+}
+
+/* Item chung */
+.services__detail-item {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 50px;
+  align-items: center;
+  gap: 30px;
+}
+
+.services__detail-item--reverse {
+  flex-direction: row-reverse;
+}
+
+.services__detail-content {
+  flex: 1;
+}
+
+.services__detail-image {
+  flex: 1;
+  max-width: 43%;
+}
+
+.services__detail-img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Tiêu đề và danh sách */
+.services__detail-title {
+  color: #002147;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.services__detail-list {
+  list-style: none;
+  padding: 0;
+}
+
+.services__detail-point {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  color: #333;
+}
+
+  .services__detail-point::before {
+    content: "•";
+    color: #00a3c8;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+
+/* Phần giá */
+.services__detail-pricing {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+  gap: 30px;
+}
+
+.services__detail-price {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.services__detail-price-title {
+  color: #002147;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.services__detail-price-icon {
+  max-width: 150px;
+}
+
+.services__detail-icon {
+  width: 100%;
+  height: auto;
+}
+
+/* Phần đặt lịch */
+.services__detail-booking {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+  gap: 30px;
+}
+
+.services__detail-action {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.services__detail-button {
+  display: inline-block;
+  background: linear-gradient(to right, #00a3c8, #0080b3);
+  color: white;
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 163, 200, 0.3);
+}
+
+  .services__detail-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 163, 200, 0.4);
+  }
+
+/* Responsive */
+@media (max-width: 992px) {
+  .services__detail-item,
+  .services__detail-item--reverse,
+  .services__detail-pricing,
+  .services__detail-booking {
+    flex-direction: column;
+  }
+
+  .services__detail-image {
+    max-width: 100%;
+    order: 1;
+    padding: 0; /* Loại bỏ padding để tối ưu trên màn hình nhỏ */
+  }
+
+  .services__detail-content {
+    order: 2;
+    padding: 0; /* Loại bỏ padding để tối ưu trên màn hình nhỏ */
+  }
+
+  .services__detail-price {
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .services__detail-action {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .services__detail-title,
+  .services__detail-price-title {
+    font-size: 20px;
+  }
+
+  .services__detail-button {
+    padding: 12px 30px;
+    font-size: 16px;
+  }
+
+  .services__detail {
+    margin: 40px auto;
+  }
+
+  .services__detail-item,
+  .services__detail-pricing {
+    margin-bottom: 40px;
+  }
+}
+
+
+/* Doctors Section */
+.doctors {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+.doctors__header {
+  margin-bottom: 50px;
+}
+
+.doctors__icon img {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.doctors__title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #002147;
+}
+
+.doctors__list {
+  margin: 0 auto;
+  max-width: 940px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.doctors__item {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  text-align: center;
+  width: 180px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+  .doctors__item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+
+.doctors__image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.doctors__name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #002147;
+  margin-bottom: 5px;
+}
+
+.doctors__specialty {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.doctors__button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+  .doctors__button:hover {
+    background-color: #0056b3;
+  }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .doctors__list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .doctors__item {
+    width: 100%;
+    max-width: 300px;
+  }
+}
