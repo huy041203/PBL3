@@ -24,8 +24,17 @@ public class UnitOfWork : IUnitOfWork
     {
         _context = context;
         BacSis = new GenericRepository<BacSi>(_context);
+        BanGhiYTes = new GenericRepository<BanGhiYTe>(_context);
         BenhNhans = new GenericRepository<BenhNhan>(_context);
+        ChanDoanLamSans = new GenericRepository<ChanDoanLamSan>(_context);
+        ChiTietDonThuocs = new GenericRepository<ChiTietDonThuoc>(_context);
+        DonThuocs = new GenericRepository<DonThuoc>(_context);
+        KetQuaXetNghiems = new GenericRepository<KetQuaXetNghiem>(_context);
+        Khoas = new GenericRepository<Khoa>(_context);
         LichHenKhams = new GenericRepository<LichHenKham>(_context);
+        NhanVienYTs = new GenericRepository<NhanVienYT>(_context);
+        Roles = new GenericRepository<Role>(_context);
+        Thuocs = new GenericRepository<Thuoc>(_context);
         Users = new GenericRepository<User>(_context);
     }
 
