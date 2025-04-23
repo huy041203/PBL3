@@ -10,7 +10,30 @@
       <li class="header__item"><a href="#">BÁC SĨ</a></li>
       <li class="header__item"><a href="#">ĐẶT LỊCH HẸN</a></li>
       <li class="header__item"><a href="#">LIÊN HỆ</a></li>
-      <li class="header__item"><a href="#">ĐĂNG NHẬP</a></li>
+      <li class="header__item">
+        @if (User.Identity.IsAuthenticated)
+        {
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">
+            Xin chào, @User.Identity.Name
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            @if (User.IsInRole("BenhNhan"))
+            {
+              <li><a class="dropdown-item" asp-controller="BenhNhan" asp-action="Profile">Tài khoản</a></li>
+            }
+            @if (User.IsInRole("BacSi"))
+            {
+              <li><a class="dropdown-item" asp-controller="BacSi" asp-action="Profile">Tài khoản</a></li>
+            }
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" asp-controller="Account" asp-action="Logout">Đăng xuất</a></li>
+          </ul>
+        }
+        else
+        {
+          <a data-bs-toggle="modal" data-bs-target="#loginModal">ĐĂNG NHẬP</a>
+        }
+      </li>
     </ul>
   </nav>
   <div class="header__search">

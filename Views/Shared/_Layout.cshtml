@@ -26,10 +26,30 @@
   <!-- Partial Footer -->
   @await Html.PartialAsync("_Footer")
 
+  <!-- Login Modal -->
+  @await Html.PartialAsync("_LoginPartial", new PBL3.Models.ViewModels.LoginViewModel())
+
   <!-- JS Global -->
   <script src="~/lib/jquery/dist/jquery.min.js"></script>
   <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="~/js/site.js" asp-append-version="true"></script>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="~/css/login.css" />
+  
   @await RenderSectionAsync("Scripts", required: false)
+
+  <script>
+    $(document).ready(function() {
+        // Hiển thị modal đăng nhập nếu có lỗi
+        @if (TempData["LoginError"] != null)
+        {
+            <text>
+            var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+            loginModal.show();
+            </text>
+        }
+    });
+  </script>
 </body>
 </html>

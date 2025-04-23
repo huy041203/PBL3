@@ -1,0 +1,53 @@
+@model PBL3.Models.ViewModels.LoginViewModel
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="login__container border-0">
+        <div class="login__content">
+          <div class="login__logo">
+            <img src="~/img/Logo.png" alt="Medicare Clinic Logo" class="login__logo-image">
+            <h1 class="login__logo-text">
+              <span class="login__logo-text--medicare">Medicare</span><br>
+              <span class="login__logo-text--clinic">Clinic</span>
+            </h1>
+          </div>
+          <h2 class="login__title">Đăng nhập</h2>
+          <form asp-action="Login" asp-controller="Account" asp-route-returnUrl="@Context.Request.Path" method="post" class="login__form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            @if (TempData["LoginError"] != null)
+            {
+                <div class="alert alert-danger">
+                    @TempData["LoginError"]
+                </div>
+            }
+            
+            <div class="login__form-group">
+              <input asp-for="Username" class="login__input" placeholder="Tên đăng nhập" required>
+              <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="login__form-group">
+              <input asp-for="Password" class="login__input" placeholder="Mật khẩu" required>
+              <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="login__form-links">
+              <div class="form-check">
+                <input asp-for="RememberMe" class="form-check-input">
+                <label asp-for="RememberMe" class="form-check-label">Ghi nhớ đăng nhập</label>
+              </div>
+              <a href="#" class="login__forgot-password">Quên mật khẩu?</a>
+            </div>
+            <button type="submit" class="login__button">Đăng nhập</button>
+          </form>
+          <p class="login__register">
+            Bạn chưa có tài khoản? <a asp-action="Register" asp-controller="Account" class="login__register-link">Đăng ký</a>
+          </p>
+        </div>
+        <div class="login__image">
+          <img src="~/img/doctor_login.png" alt="Doctor" class="login__image-content">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

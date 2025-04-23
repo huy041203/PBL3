@@ -1,0 +1,141 @@
+.login__container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.login__content {
+  flex: 1;
+  padding: 0px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login__logo {
+  margin-top: -20px;
+  margin-bottom: 40px;
+  display: flex;
+}
+
+.login__logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #002147;
+  flex-direction: column;
+}
+
+.login__logo-image {
+  max-width: 80px;
+}
+
+.login__title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #002147;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login__form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.login__input {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.login__input:focus {
+  border-color: #007bff;
+}
+
+.login__form-links {
+  text-align: right;
+}
+
+.login__forgot-password {
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login__forgot-password:hover {
+  text-decoration: underline;
+}
+
+.login__button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login__button:hover {
+  background-color: #0056b3;
+}
+
+.login__register {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.login__register-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login__register-link:hover {
+  text-decoration: underline;
+}
+
+.login__image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d9f0ff;
+}
+
+.login__image-content {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login__container {
+    flex-direction: column;
+  }
+
+  .login__content {
+    padding: 20px;
+  }
+
+  .login__image {
+    display: none;
+  }
+  .login__logo {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
