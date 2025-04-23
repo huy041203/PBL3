@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using PBL3.Models.ViewModels;
 using PBL3.Services;
+using PBL3.Models;
 
 namespace PBL3.Controllers
 {
@@ -101,6 +102,93 @@ namespace PBL3.Controllers
         public IActionResult AccessDenied()
         {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
+        {
+            if (ModelState.IsValid)
+            {
+                // Kiểm tra email đã tồn tại
+                var existingUser = await _authService.GetUserByEmailAsync(model.Email);
+                if (existingUser != null)
+                {
+                    TempData["RegisterError"] = "Email này đã được sử dụng";
+                    
+                    // Trả về trang hiện tại
+                    if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                        return Redirect(returnUrl);
+                    else
+                        return RedirectToAction("Index", "Home");
+                }
+                
+                // Tạo user mới
+                var user = new User
+                {
+                    Username = model.Email,
+                    Email = model.Email,
+                    FullName = model.FullName,
+                    Password = PasswordHasher.HashPassword(model.Password),
+                    PhoneNumber = model.PhoneNumber,
+                    Address = model.Address,
+                    Gender = model.Gender,
+                    RoleId = 3, // Role cho BenhNhan
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now
+                };
+                
+                await _unitOfWork.Users.AddAsync(user);
+                await _unitOfWork.CompleteAsync();
+                
+                // Tạo bệnh nhân
+                var benhNhan = new BenhNhan
+                {
+                    UserId = user.Id,
+                    CCCD = model.IdentityCard,
+                    NgaySinh = model.DateOfBirth
+                };
+                
+                await _unitOfWork.BenhNhans.AddAsync(benhNhan);
+                await _unitOfWork.CompleteAsync();
+                
+                // Đăng nhập tự động
+                var role = _unitOfWork.Roles.GetById(user.RoleId);
+                var principal = _authService.CreateClaimsPrincipal(user, role.RoleName);
+                
+                var authProperties = new AuthenticationProperties
+                {
+                    IsPersistent = true,
+                    ExpiresUtc = DateTimeOffset.UtcNow.AddDays(7)
+                };
+                
+                await HttpContext.SignInAsync("CookieAuth", principal, authProperties);
+                
+                TempData["Success"] = "Đăng ký thành công!";
+                
+                // Chuyển hướng
+                if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                    return Redirect(returnUrl);
+                else
+                    return RedirectToAction("Index", "Home");
+            }
+            
+            // Nếu có lỗi validation
+            foreach (var modelState in ModelState.Values)
+            {
+                foreach (var error in modelState.Errors)
+                {
+                    TempData["RegisterError"] = error.ErrorMessage;
+                    break;
+                }
+                if (TempData["RegisterError"] != null) break;
+            }
+            
+            // Trả về trang hiện tại
+            if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                return Redirect(returnUrl);
+            else
+                return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -9,6 +9,8 @@ namespace PBL3.Services
     {
         Task<bool> ValidateUserAsync(LoginViewModel model);
         Task<User> GetUserByUsernameAsync(string username);
+        Task<User> GetUserByEmailAsync(string email);
         ClaimsPrincipal CreateClaimsPrincipal(User user, string roleName);
+        
     }
 }

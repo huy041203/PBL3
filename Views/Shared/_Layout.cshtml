@@ -29,11 +29,14 @@
   <!-- Login Modal -->
   @await Html.PartialAsync("_LoginPartial", new PBL3.Models.ViewModels.LoginViewModel())
 
+  <!-- Register Modal -->
+  @await Html.PartialAsync("_RegisterPartial", new PBL3.Models.ViewModels.RegisterViewModel())
+
   <!-- JS Global -->
   <script src="~/lib/jquery/dist/jquery.min.js"></script>
   <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="~/js/site.js" asp-append-version="true"></script>
-  
+  <link rel="stylesheet" href="~/css/register.css" />
   <!-- CSS -->
   <link rel="stylesheet" href="~/css/login.css" />
   
@@ -41,14 +44,51 @@
 
   <script>
     $(document).ready(function() {
-        // Hiển thị modal đăng nhập nếu có lỗi
-        @if (TempData["LoginError"] != null)
-        {
-            <text>
-            var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
-            loginModal.show();
-            </text>
-        }
+      // Xử lý chuyển từ Login sang Register
+      $(document).on('click', '#switchToRegister', function(e) {
+        e.preventDefault();
+        $('#loginModal').modal('hide');
+        
+        // Đợi modal đóng hoàn toàn trước khi mở modal mới
+        $('#loginModal').on('hidden.bs.modal', function() {
+          $('#registerModal').modal('show');
+          // Bỏ event handler để tránh gọi nhiều lần
+          $('#loginModal').off('hidden.bs.modal');
+        });
+      });
+      
+      // Xử lý chuyển từ Register sang Login
+      $(document).on('click', '#switchToLogin', function(e) {
+        e.preventDefault();
+        $('#registerModal').modal('hide');
+        
+        // Đợi modal đóng hoàn toàn trước khi mở modal mới
+        $('#registerModal').on('hidden.bs.modal', function() {
+          $('#loginModal').modal('show');
+          // Bỏ event handler để tránh gọi nhiều lần
+          $('#registerModal').off('hidden.bs.modal');
+        });
+      });
+      
+      // Hiển thị modal đăng nhập khi có lỗi đăng nhập
+      @if (TempData["LoginError"] != null)
+      {
+        <text>
+        $(document).ready(function() {
+          $('#loginModal').modal('show');
+        });
+        </text>
+      }
+      
+      // Hiển thị modal đăng ký khi có lỗi đăng ký
+      @if (TempData["RegisterError"] != null)
+      {
+        <text>
+        $(document).ready(function() {
+          $('#registerModal').modal('show');
+        });
+        </text>
+      }
     });
   </script>
 </body>

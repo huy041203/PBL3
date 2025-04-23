@@ -30,6 +30,12 @@ namespace PBL3.Services
             return users.FirstOrDefault();
         }
 
+        public async Task<User> GetUserByEmailAsync(string email)
+        {
+            var users = await _unitOfWork.Users.FindAsync(u => u.Email == email);
+            return users.FirstOrDefault();
+        }
+
         public ClaimsPrincipal CreateClaimsPrincipal(User user, string roleName)
         {
             var claims = new List<Claim>

@@ -1,0 +1,143 @@
+.register {
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* min-height: 100vh; */
+  background-color: #eaf6ff;
+}
+
+.register__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  background-color: #002147;
+  padding: 30px;
+  color: white;
+}
+
+.register__image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  background-color: #d9f0ff;
+  flex-direction: column;
+}
+
+.register__image-content {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.register__logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.register__logo-text {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-left: 10px;
+  color: white;
+}
+
+.register__logo-image {
+  max-width: 50px;
+}
+
+.register__title {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.register__form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.register__form-group {
+  flex: 0 0 calc(50% - 10px);
+  margin-bottom: 15px;
+}
+
+.register__input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.register__input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.register__radio-container {
+  display: flex;
+  align-items: center;
+}
+
+.register__radio-group {
+  display: flex;
+  gap: 20px;
+}
+
+.register__radio-group label {
+  display: flex;
+  align-items: center;
+  color: white;
+  gap: 5px;
+}
+
+.register__button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.register__button {
+  background-color: #1a75ff;
+  color: white;
+  width: auto;
+  min-width: 200px;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.register__login {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.register__login-link {
+  color: white;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .register__form-group {
+    flex: 1 1 100%;
+  }
+}
+
+.modal-dialog.modal-lg {
+  max-width: 850px;
+}

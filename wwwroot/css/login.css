@@ -1,30 +1,34 @@
 .login__container {
   display: flex;
   flex-wrap: wrap;
-  background-color: white;
   border-radius: 10px;
   overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .login__content {
   flex: 1;
-  padding: 0px 40px;
+  padding: 30px 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: #002147;
+  color: white;
 }
 
 .login__logo {
-  margin-top: -20px;
   margin-bottom: 40px;
   display: flex;
+  align-items: center;
 }
 
 .login__logo-text {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
-  color: #002147;
-  flex-direction: column;
+  text-transform: uppercase;
+  margin-left: 10px;
 }
 
 .login__logo-image {
@@ -34,9 +38,8 @@
 .login__title {
   font-size: 24px;
   font-weight: bold;
-  color: #002147;
-  margin-bottom: 20px;
-  text-align: center;
+  margin-bottom: 30px;
+  text-align: left;
 }
 
 .login__form {
@@ -56,7 +59,8 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   outline: none;
-  transition: border-color 0.3s ease;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 .login__input:focus {
@@ -65,11 +69,12 @@
 
 .login__form-links {
   text-align: right;
+  margin-bottom: 20px;
 }
 
 .login__forgot-password {
   font-size: 14px;
-  color: #007bff;
+  color: white;
   text-decoration: none;
 }
 
@@ -78,14 +83,15 @@
 }
 
 .login__button {
-  background-color: #007bff;
+  background-color: #1a75ff;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 20px;
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-bottom: 15px;
 }
 
 .login__button:hover {
@@ -108,17 +114,20 @@
 }
 
 .login__image {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin: auto;
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #d9f0ff;
 }
 
 .login__image-content {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   object-fit: cover;
+  display: block;
 }
 
 /* Responsive Design */
@@ -138,4 +147,8 @@
     margin-top: 0px;
     margin-bottom: 0px;
   }
+}
+
+.modal-dialog.modal-lg {
+  max-width: 850px;
 }
