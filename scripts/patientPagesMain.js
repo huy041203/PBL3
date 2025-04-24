@@ -46,9 +46,18 @@ window.onload = function () {
           case 'help':
             pageFile = 'patientpages/patientHelp.html';
             break;
-          case 'myHealth':
-            pageFile = 'patientpages/myHealth.html';
-            break;
+            case 'myHealth':
+              pageFile = 'patientpages/myHealth.html';
+              fetch(pageFile)
+                .then(res => res.text())
+                .then(html => {
+                  document.getElementById('patient-content-container').innerHTML = html;
+            
+                  // Sau khi nội dung được load, khởi động modal
+                  setupMyHealthModals();
+                });
+              return;
+            
           case 'paymentAfter':
             pageFile = 'patientpages/paymentAfter.html';
               fetch(pageFile)
@@ -72,7 +81,100 @@ window.onload = function () {
           });
       });
     }
+    function setupMyHealthModals() {
+      const clinicalModal = document.getElementById('clinical-exam-modal');
+      const clinicalLinks = document.querySelectorAll('.clinical-link');
+      const clinicalCloseButton = document.querySelector('.clinical-exam-modal__close');
+      
+      const prescriptionModal = document.getElementById('prescription-modal');
+      const prescriptionLinks = document.querySelectorAll('.prescription-link');
+      const prescriptionCloseButton = document.querySelector('.prescription-modal__close');
+
+      const testResultModal = document.getElementById('test-results-modal');
+      const testResultLinks = document.querySelectorAll('.test-link');
+      const testResultCloseButton = document.querySelector('.test-results-modal__close');
+
+      const paymentModal = document.getElementById('payment-modal');
+      const paymentLinks = document.querySelectorAll('.payment-link');
+      const paymentCloseButton = document.querySelector('.payment-modal__close');
+
+      
+      // Gắn sự kiện mở Clinical Modal
+      clinicalLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (clinicalModal) clinicalModal.classList.add('modal--show');
+        });
+      });
     
+      // Gắn sự kiện mở Prescription Modal
+      prescriptionLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (prescriptionModal) prescriptionModal.classList.add('modal--show');
+        });
+      });
+
+      testResultLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (testResultModal) testResultModal.classList.add('modal--show');
+        });
+      });
+
+      // Gắn sự kiện mở Payment Modal
+      paymentLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault(); 
+          if (paymentModal) paymentModal.classList.add('modal--show');
+        });
+      });
+
+    
+      // Đóng các modal khi bấm nút X
+      if (clinicalCloseButton) {
+        clinicalCloseButton.addEventListener('click', () => {
+          clinicalModal.classList.remove('modal--show');
+        });
+      }
+    
+      if (prescriptionCloseButton) {
+        prescriptionCloseButton.addEventListener('click', () => {
+          prescriptionModal.classList.remove('modal--show');
+        });
+      }
+
+      if(testResultCloseButton) {
+        testResultCloseButton.addEventListener('click', () => {
+          testResultModal.classList.remove('modal--show');
+        });
+      }
+    
+      if (paymentCloseButton) {
+        paymentCloseButton.addEventListener('click', () => {  
+          paymentModal.classList.remove('modal--show');
+        });
+      }
+      
+      // Đóng modal khi click ra ngoài
+      window.addEventListener('click', (event) => {
+        if (event.target === clinicalModal) {
+          clinicalModal.classList.remove('modal--show');
+        }
+        if (event.target === prescriptionModal) {
+          prescriptionModal.classList.remove('modal--show');
+        }
+        if(event.target === testResultModal) {
+          testResultModal.classList.remove('modal--show');
+        }
+        if (event.target === paymentModal) {
+          paymentModal.classList.remove('modal--show');
+        }
+
+      });
+    }
+    
+
     function setupPaymentModalEvents() {
       // Lấy phần tử "Chưa thanh toán"
       const unpaidStatus = document.getElementById("unpaid");

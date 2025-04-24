@@ -28,41 +28,16 @@
           <td class="health-records__cell">Tăng Hà Nam Anh</td>
           <td class="health-records__cell">Đau lưng</td>
           <td class="health-records__cell">
-            <a href="#" class="health-records__link">Kết quả</a>
+            <a href="#" class="health-records__link clinical-link">Kết quả</a>
           </td>
           <td class="health-records__cell">
-            <a href="#" class="health-records__link">Đơn thuốc</a>
+            <a href="#" class="health-records__link prescription-link">Đơn thuốc</a>
           </td>
           <td class="health-records__cell">
-            <a href="#" class="health-records__link">Xét nghiệm</a>
+            <a href="#" class="health-records__link test-link">Xét nghiệm</a>
           </td>
           <td class="health-records__cell">
-            <span class="health-records__status health-records__status--paid">Đã thanh toán</span>
-          </td>
-        </tr>
-        
-        <tr class="health-records__row">
-          <td class="health-records__cell">
-            <span class="health-records__code">MK1234</span>
-            <span class="health-records__sub-code">56789</span>
-          </td>
-          <td class="health-records__cell">
-            <span class="health-records__code">24/03</span>
-            <span class="health-records__sub-code">2025</span>
-          </td>
-          <td class="health-records__cell">Tăng Hà Nam Anh</td>
-          <td class="health-records__cell">Đau lưng</td>
-          <td class="health-records__cell">
-            <a href="#" class="health-records__link">Kết quả</a>
-          </td>
-          <td class="health-records__cell">
-            <a href="#" class="health-records__link">Đơn thuốc</a>
-          </td>
-          <td class="health-records__cell">
-            <a href="#" class="health-records__link">Xét nghiệm</a>
-          </td>
-          <td class="health-records__cell">
-            <span class="health-records__status health-records__status--paid">Đã thanh toán</span>
+            <span class="health-records__status health-records__status--paid payment-link">Đã thanh toán</span>
           </td>
         </tr>
         
@@ -78,41 +53,16 @@
           <td class="health-records__cell">Tăng Hà Nam Anh</td>
           <td class="health-records__cell">Đau lưng</td>
           <td class="health-records__cell">
-            <a href="#" class="health-records__link">Kết quả</a>
+            <a href="#" class="health-records__link clinical-link">Kết quả</a>
           </td>
           <td class="health-records__cell">
-            <a href="#" class="health-records__link">Đơn thuốc</a>
+            <a href="#" class="health-records__link prescription-link">Đơn thuốc</a>
           </td>
           <td class="health-records__cell">
-            <a href="#" class="health-records__link">Xét nghiệm</a>
+            <a href="#" class="health-records__link test-link">Xét nghiệm</a>
           </td>
           <td class="health-records__cell">
-            <span class="health-records__status health-records__status--paid">Đã thanh toán</span>
-          </td>
-        </tr>
-        
-        <tr class="health-records__row">
-          <td class="health-records__cell">
-            <span class="health-records__code">MK1234</span>
-            <span class="health-records__sub-code">56789</span>
-          </td>
-          <td class="health-records__cell">
-            <span class="health-records__code">24/03</span>
-            <span class="health-records__sub-code">2025</span>
-          </td>
-          <td class="health-records__cell">Tăng Hà Nam Anh</td>
-          <td class="health-records__cell">Đau lưng</td>
-          <td class="health-records__cell">
-            <a href="#" class="health-records__link">Kết quả</a>
-          </td>
-          <td class="health-records__cell">
-            <a href="#" class="health-records__link">Đơn thuốc</a>
-          </td>
-          <td class="health-records__cell">
-            <a href="#" class="health-records__link">Xét nghiệm</a>
-          </td>
-          <td class="health-records__cell">
-            <span class="health-records__status health-records__status--paid">Đã thanh toán</span>
+            <span class="health-records__status health-records__status--paid payment-link">Đã thanh toán</span>
           </td>
         </tr>
         
@@ -128,10 +78,10 @@
           <td class="health-records__cell">Tăng Hà Nam Anh</td>
           <td class="health-records__cell">Đau lưng</td>
           <td class="health-records__cell">
-            <a href="#" class="health-records__link">Kết quả</a>
+            <a href="#" class="health-records__link clinical-link">Kết quả</a>
           </td>
           <td class="health-records__cell">
-            <a href="#" class="health-records__link">Đơn thuốc</a>
+            <a href="#" class="health-records__link prescription-link">Đơn thuốc</a>
           </td>
           <td class="health-records__cell">
             <a href="#" class="health-records__link">Xét nghiệm</a>
@@ -145,6 +95,249 @@
   </div>
 </div>
 
+<!-- Clinical Exam Modal -->
+<div class="clinical-exam-modal" id="clinical-exam-modal">
+  <div class="clinical-exam-modal__content">
+    <button class="clinical-exam-modal__close">&times;</button>
+    
+    <div class="clinical-exam-modal__section">
+      <h3 class="clinical-exam-modal__subtitle">Thông tin khám:</h3>
+      <ul class="clinical-exam-modal__list">
+        <li class="clinical-exam-modal__item">Mã khám: <span class="clinical-exam-modal__value">MK12345/789</span></li>
+        <li class="clinical-exam-modal__item">Số phòng: <span class="clinical-exam-modal__value">P304</span></li>
+        <li class="clinical-exam-modal__item">Thời gian: <span class="clinical-exam-modal__value">08:00-08:30</span></li>
+      </ul>
+    </div>
+    
+    <div class="clinical-exam-modal__section">
+      <h3 class="clinical-exam-modal__subtitle">Thông số lâm sàng:</h3>
+      <ul class="clinical-exam-modal__list">
+        <li class="clinical-exam-modal__item">Tình trạng bệnh: <span class="clinical-exam-modal__value">Nghiêm trọng</span></li>
+        <li class="clinical-exam-modal__item">Nhịp tim: <span class="clinical-exam-modal__value">70nhịp/p</span></li>
+        <li class="clinical-exam-modal__item">Huyết áp: <span class="clinical-exam-modal__value">120/80 mmHg</span></li>
+      </ul>
+    </div>
+    
+    <div class="clinical-exam-modal__section">
+      <h3 class="clinical-exam-modal__subtitle">Chuẩn đoán:</h3>
+      <ul class="clinical-exam-modal__list">
+        <li class="clinical-exam-modal__item">Chuẩn đoán 1: <span class="clinical-exam-modal__value">Thoái vị đĩa đệm</span></li>
+        <li class="clinical-exam-modal__item">Chuẩn đoán 2: <span class="clinical-exam-modal__value">Không có</span></li>
+      </ul>
+    </div>
+    
+    <div class="clinical-exam-modal__section">
+      <h3 class="clinical-exam-modal__subtitle">Ghi chú:</h3>
+      <ul class="clinical-exam-modal__list">
+        <li class="clinical-exam-modal__item">• Tránh cúi, vặn người đột ngột</li>
+        <li class="clinical-exam-modal__item">• Không mang vác nặng</li>
+        <li class="clinical-exam-modal__item">• Giữ cân nặng ổn định</li>
+        <li class="clinical-exam-modal__item">• Nằm đệm cứng, ngủ đúng tư thế</li>
+      </ul>
+    </div>
+    
+    <div class="clinical-exam-modal__total">
+      <div class="clinical-exam-modal__total-label">Giá khám:</div>
+      <div class="clinical-exam-modal__total-price">200.000</div>
+    </div>
+  </div>
+</div>
+
+<!-- Prescription Modal -->
+<div class="prescription-modal" id="prescription-modal">
+  <div class="prescription-modal__content">
+    <button class="prescription-modal__close">&times;</button>
+    
+    <div class="prescription-modal__section">
+      <h3 class="prescription-modal__subtitle">Thông tin thuốc:</h3>
+      <table class="prescription-modal__table">
+        <thead>
+          <tr>
+            <th>Tên thuốc</th>
+            <th>Số lượng</th>
+            <th>Loại</th>
+            <th>Liều lượng</th>
+            <th>Giá</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Aspirin</td>
+            <td>2</td>
+            <td>Viên</td>
+            <td>2 viên/sau ăn sáng</td>
+            <td>20.000</td>
+          </tr>
+          <tr>
+            <td>Aspirin</td>
+            <td>2</td>
+            <td>Viên</td>
+            <td>2 viên/sau ăn sáng</td>
+            <td>20.000</td>
+          </tr>
+          <tr>
+            <td>Aspirin</td>
+            <td>2</td>
+            <td>Viên</td>
+            <td>2 viên/sau ăn sáng</td>
+            <td>20.000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="prescription-modal__section">
+      <h3 class="prescription-modal__subtitle">Hướng dẫn sử dụng:</h3>
+      <ul class="prescription-modal__list">
+        <li class="prescription-modal__item">Miêu tả cách dùng: <span class="prescription-modal__value">Giảm đau</span></li>
+        <li class="prescription-modal__item">Tác dụng phụ: <span class="prescription-modal__value">Đau dạ dày</span></li>
+      </ul>
+    </div>
+    
+    <div class="prescription-modal__section">
+      <h3 class="prescription-modal__subtitle">Lưu ý:</h3>
+      <ul class="prescription-modal__list">
+        <li class="prescription-modal__item">• Uống thuốc sau khi ăn</li>
+        <li class="prescription-modal__item">• Không dùng đồng thời với rượu bia</li>
+        <li class="prescription-modal__item">• Ngưng sử dụng nếu có phản ứng phụ nghiêm trọng</li>
+      </ul>
+    </div>
+    
+    <div class="prescription-modal__total">
+      <div class="prescription-modal__total-label">Tổng giá trị đơn thuốc:</div>
+      <div class="prescription-modal__total-price">60.000</div>
+    </div>
+  </div> 
+</div>
+
+<!-- Test Results Modal -->
+<div class="test-results-modal" id="test-results-modal">
+  <div class="test-results-modal__content">
+    <button class="test-results-modal__close">&times;</button>
+    
+    <div class="test-results-modal__section">
+      <h3 class="test-results-modal__subtitle">Thông tin xét nghiệm:</h3>
+      <ul class="test-results-modal__list">
+        <li class="test-results-modal__item">Mã xét nghiệm: <span class="test-results-modal__value">XN12345</span></li>
+        <li class="test-results-modal__item">Ngày thực hiện: <span class="test-results-modal__value">24/03/2025</span></li>
+        <li class="test-results-modal__item">Chuyên viên: <span class="test-results-modal__value">Đặng Thu Thảo</span></li>
+      </ul>
+    </div>
+    
+    <div class="test-results-modal__section">
+      <h3 class="test-results-modal__subtitle">Kết quả xét nghiệm:</h3>
+      <table class="test-results-modal__table">
+        <thead>
+          <tr>
+            <th>Loại xét nghiệm</th>
+            <th>Bộ phận</th>
+            <th>Kết quả</th>
+            <th>Phòng</th>
+            <th>Thời gian</th>
+            <th>Giá</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chụp MRI</td>
+            <td>Cột sống thắt lưng</td>
+            <td>Thoát vị đĩa đệm L4 - L5</td>
+            <td>F205</td>
+            <td>09:45-10:00</td>
+            <td>150.000</td>
+          </tr>
+          <tr>
+            <td>Chụp MRI</td>
+            <td>Cột sống thắt lưng</td>
+            <td>Thoát vị đĩa đệm L4 - L5</td>
+            <td>F205</td>
+            <td>09:45-10:00</td>
+            <td>150.000</td>
+          </tr>
+          <tr>
+            <td>Chụp MRI</td>
+            <td>Cột sống thắt lưng</td>
+            <td>Thoát vị đĩa đệm L4 - L5</td>
+            <td>F205</td>
+            <td>09:45-10:00</td>
+            <td>150.000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="test-results-modal__section">
+      <h3 class="test-results-modal__subtitle">Nhận xét của chuyên viên:</h3>
+      <ul class="test-results-modal__list">
+        <li class="test-results-modal__item">• Phát hiện thoát vị đĩa đệm rõ ràng tại vị trí L4-L5</li>
+        <li class="test-results-modal__item">• Có dấu hiệu chèn ép rễ thần kinh</li>
+        <li class="test-results-modal__item">• Cần theo dõi và điều trị theo chỉ định của bác sĩ</li>
+      </ul>
+    </div>
+    
+    <div class="test-results-modal__section">
+      <h3 class="test-results-modal__subtitle">Lưu ý:</h3>
+      <ul class="test-results-modal__list">
+        <li class="test-results-modal__item">• Kết quả cần được đối chiếu với triệu chứng lâm sàng</li>
+        <li class="test-results-modal__item">• Đề nghị tái khám sau 1 tháng hoặc khi có diễn biến bất thường</li>
+      </ul>
+    </div>
+    
+    <div class="test-results-modal__total">
+      <div class="test-results-modal__total-label">Tổng chi phí xét nghiệm:</div>
+      <div class="test-results-modal__total-price">450.000</div>
+    </div>
+  </div>
+</div>
+
+<!-- Payment Modal -->
+<div class="payment-modal" id="payment-modal">
+  <div class="payment-modal__content">
+    <button class="payment-modal__close">&times;</button>
+    
+    <div class="payment-modal__section">
+      <h3 class="payment-modal__subtitle">Khám lâm sàn:</h3>
+      <ul class="payment-modal__list">
+        <li class="payment-modal__item">Chuẩn đoán: <span class="payment-modal__price">150.000</span></li>
+      </ul>
+    </div>
+    
+    <div class="payment-modal__section">
+      <h3 class="payment-modal__subtitle">Xét nghiệm:</h3>
+      <ul class="payment-modal__list">
+        <li class="payment-modal__item">Chụp MRI: <span class="payment-modal__price">150.000</span></li>
+        <li class="payment-modal__item">Xét nghiệm máu: <span class="payment-modal__price">100.000</span></li>
+      </ul>
+    </div>
+    
+    <div class="payment-modal__section">
+      <h3 class="payment-modal__subtitle">Đơn thuốc:</h3>
+      <ul class="payment-modal__list">
+        <li class="payment-modal__item">Aspirin: <span class="payment-modal__price">100.000</span></li>
+        <li class="payment-modal__item">Aspirin: <span class="payment-modal__price">100.000</span></li>
+        <li class="payment-modal__item">Aspirin: <span class="payment-modal__price">100.000</span></li>
+        <li class="payment-modal__item">Aspirin: <span class="payment-modal__price">100.000</span></li>
+      </ul>
+    </div>
+    
+    <div class="payment-modal__total">
+      <div class="payment-modal__total-label">Tổng hóa đơn:</div>
+      <div class="payment-modal__total-price">800.000</div>
+    </div>
+    
+    <div class="payment-modal__status">
+      Trạng thái: <span class="payment-modal__status-text">chưa thanh toán</span>
+    </div>
+    
+    <div class="payment-modal__payment">
+      <h3 class="payment-modal__payment-title">Thanh toán ngay</h3>
+      <div class="payment-modal__qr">
+        <img src="./assets/img/qr-code.png" alt="QR Code thanh toán" class="payment-modal__qr-image">
+      </div>
+    </div>
+  </div>
+</div>
+
 <style>
-  @import url('../assets/styles/myHealth.css');
+@import url('../assets/styles/myHealth.css');
 </style>

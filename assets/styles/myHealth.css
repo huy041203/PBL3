@@ -58,6 +58,7 @@
 
 .health-records__link:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .health-records__status {
@@ -66,6 +67,7 @@
   font-size: 12px;
   font-weight: 500;
   display: inline-block;
+  cursor: pointer;
 }
 
 .health-records__status--paid {
@@ -85,8 +87,218 @@
 
 .health-records__sub-code {
   display: block;
-  color: #333;
+  color: #777;
+  font-size: 12px;
   margin-top: 3px;
+}
+
+/* Clinical Exam Modal Styles */
+.clinical-exam-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.clinical-exam-modal.modal--show {
+  display: flex;
+}
+
+.clinical-exam-modal__content {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.clinical-exam-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #777;
+}
+
+.clinical-exam-modal__close:hover {
+  color: #333;
+}
+
+.clinical-exam-modal__section {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.clinical-exam-modal__subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.clinical-exam-modal__list {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.clinical-exam-modal__item {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.clinical-exam-modal__value {
+  font-weight: 500;
+}
+
+.clinical-exam-modal__total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Prescription Modal Styles */
+.prescription-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.prescription-modal.modal--show {
+  display: flex;
+}
+
+.prescription-modal__content {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.prescription-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #777;
+}
+
+.prescription-modal__close:hover {
+  color: #333;
+}
+
+.prescription-modal__section {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.prescription-modal__subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.prescription-modal__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+.prescription-modal__table th,
+.prescription-modal__table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.prescription-modal__table th {
+  font-weight: 500;
+  color: #555;
+  background-color: #f5f5f5;
+}
+
+.prescription-modal__list {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.prescription-modal__item {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.prescription-modal__value {
+  font-weight: 500;
+}
+
+.prescription-modal__total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Modal Animation */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.clinical-exam-modal__content,
+.prescription-modal__content {
+  animation: modalFadeIn 0.3s ease-out;
 }
 
 /* Responsive Styles */
@@ -94,10 +306,365 @@
   .health-records__table {
     min-width: 700px;
   }
+  
+  .clinical-exam-modal__content,
+  .prescription-modal__content {
+    width: 90%;
+    max-width: 500px;
+    padding: 15px;
+  }
+  
+  .prescription-modal__table {
+    min-width: 450px;
+  }
 }
 
 @media screen and (max-width: 480px) {
   .health-records {
     padding: 15px;
   }
+  
+  .clinical-exam-modal__content,
+  .prescription-modal__content {
+    width: 95%;
+    padding: 15px 10px;
+  }
+  
+  .clinical-exam-modal__section,
+  .prescription-modal__section {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+  }
+  
+  .clinical-exam-modal__subtitle,
+  .prescription-modal__subtitle {
+    font-size: 15px;
+  }
+  
+  .clinical-exam-modal__item,
+  .prescription-modal__item {
+    font-size: 13px;
+  }
+  
+  .clinical-exam-modal__total,
+  .prescription-modal__total {
+    font-size: 15px;
+  }
+}
+
+/* Test Results Modal Styles */
+.test-results-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.test-results-modal.modal--show {
+  display: flex;
+}
+
+.test-results-modal__content {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.test-results-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #777;
+}
+
+.test-results-modal__close:hover {
+  color: #333;
+}
+
+.test-results-modal__section {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.test-results-modal__subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.test-results-modal__list {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.test-results-modal__item {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.test-results-modal__value {
+  font-weight: 500;
+}
+
+.test-results-modal__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+.test-results-modal__table th,
+.test-results-modal__table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.test-results-modal__table th {
+  font-weight: 500;
+  color: #555;
+  background-color: #f5f5f5;
+}
+
+.test-results-modal__total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Responsive Styles for Test Results Modal */
+@media screen and (max-width: 768px) {
+  .test-results-modal__content {
+    width: 90%;
+    max-width: 600px;
+    padding: 15px;
+  }
+  
+  .test-results-modal__table {
+    min-width: 500px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .test-results-modal__content {
+    width: 95%;
+    padding: 15px 10px;
+  }
+  
+  .test-results-modal__section {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+  }
+  
+  .test-results-modal__subtitle {
+    font-size: 15px;
+  }
+  
+  .test-results-modal__item {
+    font-size: 13px;
+  }
+  
+  .test-results-modal__total {
+    font-size: 15px;
+  }
+}
+
+/* Payment Modal Styles */
+.payment-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  display: none; /* Hidden by default */
+}
+.payment-modal.modal--show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-modal__content {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.payment-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #777;
+}
+
+.payment-modal__close:hover {
+  color: #333;
+}
+
+.payment-modal__section {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.payment-modal__subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.payment-modal__list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.payment-modal__item {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.payment-modal__price {
+  font-weight: 500;
+}
+
+.payment-modal__total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.payment-modal__status {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.payment-modal__status-text {
+  color: #ed6c02;
+  font-weight: 500;
+}
+
+.payment-modal__payment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.payment-modal__payment-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.payment-modal__qr {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
+}
+
+.payment-modal__qr-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {  
+  .payment-modal__content {
+    width: 90%;
+    max-width: 500px;
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .payment-modal__content {
+    width: 95%;
+    padding: 15px 10px;
+  }
+  
+  .payment-modal__section {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+  }
+  
+  .payment-modal__subtitle {
+    font-size: 15px;
+  }
+  
+  .payment-modal__item {
+    font-size: 13px;
+  }
+  
+  .payment-modal__total {
+    font-size: 15px;
+  }
+}
+
+/* Optional: Animation for modal */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.payment-modal__content {
+  animation: modalFadeIn 0.3s ease-out;
 }
