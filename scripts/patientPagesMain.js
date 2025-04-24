@@ -46,6 +46,9 @@ window.onload = function () {
           case 'help':
             pageFile = 'patientpages/patientHelp.html';
             break;
+          case 'myHealth':
+            pageFile = 'patientpages/myHealth.html';
+            break;
           case 'paymentAfter':
             pageFile = 'patientpages/paymentAfter.html';
               fetch(pageFile)
