@@ -1,0 +1,16 @@
+#patient-container {
+  display: flex; /* Cho các phần tử con nằm ngang */
+  max-width: 1000px;
+  margin: 120px auto;
+  gap: 20px; /* khoảng cách giữa nav và content (tuỳ chỉnh) */
+}
+
+/* Style cho thanh nav */
+#patient-nav-container {
+  width: 250px; /* tuỳ chỉnh độ rộng menu */
+}
+
+/* Style cho phần nội dung chính */
+#patient-content-container {
+  flex: 1; /* chiếm phần còn lại */
+}

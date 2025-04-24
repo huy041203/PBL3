@@ -1,0 +1,99 @@
+<div class="profile">
+  <div class="profile__header">
+    <h2 class="profile__title">Thông tin cá nhân</h2>
+    <button class="profile__edit-btn">
+      <span class="profile__edit-text">Chỉnh sửa</span>
+      <span class="profile__edit-icon">
+        <img src="../assets/img/edit.png" alt="Edit icon">
+      </span>
+    </button>
+  </div>
+
+  <div class="profile__user">
+    <div class="profile__avatar_container">
+      <img src="../assets/img/user.png" alt="Avatar người dùng">
+    </div>
+    <div class="profile__info">
+      <h3 class="profile__name">Nguyễn Thị Thùy Linh</h3>
+      <p class="profile__id">MBN10223030</p>
+    </div>
+  </div>
+
+  <form class="profile__form">
+    <!-- <div class="profile__form-group">
+      <label class="profile__label" for="ma-benh-nhan">Mã bệnh nhân</label>
+      <input class="profile__input" type="text" id="ma-benh-nhan">
+    </div> -->
+
+    <div class="profile__form-group">
+      <label class="profile__label" for="so-cccd">Số CCCD</label>
+      <input class="profile__input" type="text" id="so-cccd">
+    </div>
+
+    <div class="profile__form-group">
+      <label class="profile__label" for="ho-ten">Họ và tên</label>
+      <input class="profile__input" type="text" id="ho-ten">
+    </div>
+
+    <div class="profile__form-group">
+      <label class="profile__label" for="ngay-sinh">Ngày sinh</label>
+      <div class="profile__date-container">
+        <input class="profile__input profile__input--date" type="text" id="ngay-sinh" value="03/07/2022">
+        <button class="profile__calendar-btn" type="button"></button>
+      </div>
+    </div>
+
+    <div class="profile__form-group profile__form-group--inline">
+      <label class="profile__label profile__label--gender">Giới tính</label>
+      <div class="profile__radio-group">
+        <div class="profile__radio">
+          <input type="radio" id="gioi-tinh-nu" name="gioi-tinh" checked>
+          <label for="gioi-tinh-nu">Nữ</label>
+        </div>
+        <div class="profile__radio">
+          <input type="radio" id="gioi-tinh-nam" name="gioi-tinh">
+          <label for="gioi-tinh-nam">Nam</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile__form-group">
+      <label class="profile__label" for="dia-chi">Địa chỉ cư trú</label>
+      <input class="profile__input" type="text" id="dia-chi">
+    </div>
+
+    <div class="profile__form-group">
+      <label class="profile__label" for="gmail">Gmail</label>
+      <input class="profile__input" type="email" id="gmail">
+    </div>
+
+    <div class="profile__form-group">
+      <label class="profile__label" for="sdt">SĐT</label>
+      <input class="profile__input" type="tel" id="sdt">
+    </div>
+
+    <div class="profile__form-group">
+      <label class="profile__label" for="sdt-nguoi-than">SĐT người thân</label>
+      <input class="profile__input" type="tel" id="sdt-nguoi-than">
+    </div>
+
+    <div class="profile__form-group">
+      <label class="profile__label" for="di-ung">Dị ứng</label>
+      <input class="profile__input" type="text" id="di-ung">
+    </div>
+
+    <div class="profile__form-group">
+      <label class="profile__label" for="mat-khau">Mật khẩu</label>
+      <input class="profile__input" type="password" id="mat-khau" value="********">
+    </div>
+
+    <div class="profile__actions">
+      <button type="submit" class="profile__btn profile__btn--primary">Lưu</button>
+      <button type="button" class="profile__btn profile__btn--secondary">Hủy bỏ thay đổi</button>
+    </div>
+  </form>
+</div>
+
+<style>
+  @import url('../assets/styles/patientProfile.css');
+</style>

@@ -1,0 +1,93 @@
+<div class="payment">
+  <h2 class="payment__title">Thanh toán ngay</h2>
+  
+  <div class="payment__table-container">
+    <table class="payment__table">
+      <thead class="payment__header">
+        <tr>
+          <th class="payment__heading">Mã khám</th>
+          <th class="payment__heading">Ngày</th>
+          <th class="payment__heading">Bác sĩ</th>
+          <th class="payment__heading">Triệu chứng</th>
+          <th class="payment__heading">Làm sàn</th>
+          <th class="payment__heading">Đơn thuốc</th>
+          <th class="payment__heading">Xét nghiệm</th>
+          <th class="payment__heading">Trạng thái</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="payment__row">
+          <td class="payment__cell">MK1234 56789</td>
+          <td class="payment__cell">24/03 2025</td>
+          <td class="payment__cell">Tăng Hà Nam Anh</td>
+          <td class="payment__cell">Đau lưng</td>
+          <td class="payment__cell">
+            <a href="#" class="payment__link">Kết quả</a>
+          </td>
+          <td class="payment__cell">
+            <a href="#" class="payment__link">Đơn thuốc</a>
+          </td>
+          <td class="payment__cell">
+            <a href="#" class="payment__link">Xét nghiệm</a>
+          </td>
+          <td class="payment__cell">
+            <span class="payment__status payment__status--unpaid" id="unpaid">Chưa thanh toán</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Payment Modal -->
+<div class="payment-modal" id="payment-modal">
+  <div class="payment-modal__content">
+    <button class="payment-modal__close">&times;</button>
+    
+    <div class="payment-modal__section">
+      <h3 class="payment-modal__subtitle">Khám lâm sàn:</h3>
+      <ul class="payment-modal__list">
+        <li class="payment-modal__item">Chuẩn đoán: <span class="payment-modal__price">150.000</span></li>
+      </ul>
+    </div>
+    
+    <div class="payment-modal__section">
+      <h3 class="payment-modal__subtitle">Xét nghiệm:</h3>
+      <ul class="payment-modal__list">
+        <li class="payment-modal__item">Chụp MRI: <span class="payment-modal__price">150.000</span></li>
+        <li class="payment-modal__item">Xét nghiệm máu: <span class="payment-modal__price">100.000</span></li>
+      </ul>
+    </div>
+    
+    <div class="payment-modal__section">
+      <h3 class="payment-modal__subtitle">Đơn thuốc:</h3>
+      <ul class="payment-modal__list">
+        <li class="payment-modal__item">Aspirin: <span class="payment-modal__price">100.000</span></li>
+        <li class="payment-modal__item">Aspirin: <span class="payment-modal__price">100.000</span></li>
+        <li class="payment-modal__item">Aspirin: <span class="payment-modal__price">100.000</span></li>
+        <li class="payment-modal__item">Aspirin: <span class="payment-modal__price">100.000</span></li>
+      </ul>
+    </div>
+    
+    <div class="payment-modal__total">
+      <div class="payment-modal__total-label">Tổng hóa đơn:</div>
+      <div class="payment-modal__total-price">800.000</div>
+    </div>
+    
+    <div class="payment-modal__status">
+      Trạng thái: <span class="payment-modal__status-text">chưa thanh toán</span>
+    </div>
+    
+    <div class="payment-modal__payment">
+      <h3 class="payment-modal__payment-title">Thanh toán ngay</h3>
+      <div class="payment-modal__qr">
+        <img src="./assets/img/qr-code.png" alt="QR Code thanh toán" class="payment-modal__qr-image">
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @import url('../assets/styles/paymentAfter.css');
+</style>
+

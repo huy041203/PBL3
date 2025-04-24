@@ -8,11 +8,11 @@
 │   ├── header.html       # Phần header của trang web
 │   └── footer.html       # Phần footer của trang web
 │
-├── /pages                # Các trang HTML
+├── /homepages                # Các trang HTML
 │   ├── index.html        # Trang chủ
 │   └── register.html     # Trang đăng ký
 │
 ├── /scripts              # Các file JavaScript
-│   └── main.js           # File JavaScript chính
+│   └── hompagesmain.js           # File JavaScript chính
 │
 └── index.html            # File HTML chính nếu cần

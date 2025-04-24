@@ -32,7 +32,7 @@ window.onload = function () {
 // Hàm để tải trang chủ
 function loadHomePage(){
   // Chèn nội dung chính vào trang và khởi tạo hiệu ứng sau khi nội dung đã được tải
-  return fetch('pages/home.html')
+  return fetch('homepages/home.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('content-container').innerHTML = data;
@@ -51,7 +51,7 @@ function loadHomePage(){
 // Hàm để tải trang đặt lịch
 function loadBookingPage() {
   window.scrollTo({ top: 0, behavior: "auto" }); // Tránh bị giật vì scroll
-  return fetch('pages/booking.html')
+  return fetch('homepages/booking.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('content-container').innerHTML = data;
@@ -73,7 +73,7 @@ function loadBookingPage() {
 }
 
 function loadLogin(){
-  return fetch('pages/login.html')
+  return fetch('homepages/login.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('content-container').innerHTML = data;
@@ -81,7 +81,7 @@ function loadLogin(){
 }
 
 function loadRegister(){
-  return fetch('pages/register.html')
+  return fetch('homepages/register.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('content-container').innerHTML = data;
@@ -90,7 +90,7 @@ function loadRegister(){
 
 function loadBookingDetailPage() {
   window.scrollTo({ top: 0, behavior: "auto" }); // Tránh bị giật vì scroll
-  return fetch('pages/booking_detail.html')
+  return fetch('homepages/booking_detail.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('content-container').innerHTML = data;
@@ -714,3 +714,5 @@ function initializeServicesDetailAnimation() {
   // Kiểm tra khi cuộn trang
   window.addEventListener("scroll", checkVisibility);
 }
+
+

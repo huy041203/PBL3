@@ -1,0 +1,214 @@
+/* Patient Navigation Sidebar Styles */
+.patient-nav {
+  width: 250px;
+  box-shadow: 1px 0 5px rgba(0, 96, 156, 0.1);
+  height: 80vh;
+  left: 0;
+  top: 0;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 900;
+  border-radius: 10px;
+  background-color: #f0faff;
+}
+/* Profile Section */
+.patient-nav__profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #b0e1ff;
+  margin-bottom: 20px;
+}
+
+.patient-nav__avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.patient-nav__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.patient-nav__info {
+  text-align: center;
+}
+
+.patient-nav__name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.patient-nav__id {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #00bfbf;
+}
+
+/* Navigation Menu */
+.patient-nav__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.patient-nav__item {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.patient-nav__link {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #444;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  cursor: pointer;
+}
+
+.patient-nav__link:hover, 
+.patient-nav__link.active {
+  background-color: rgba(0, 191, 191, 0.1);
+  color: #00bfbf;
+  border-left-color: #00bfbf;
+}
+
+.patient-nav__icon img {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  /* background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; */
+}
+
+/* Icon images
+.patient-nav__icon--profile {
+  background-image: url('./assets/img/user-icon.png');
+}
+
+.patient-nav__icon--calendar {
+  background-image: url('../assets/img/appointment.png');
+}
+
+.patient-nav__icon--health {
+  background-image: url('./assets/img/health-icon.png');
+}
+
+.patient-nav__icon--payment {
+  background-image: url('./assets/img/payment-icon.png');
+}
+
+.patient-nav__icon--support {
+  background-image: url('./assets/img/support-icon.png');
+}
+
+.patient-nav__icon--logout {
+  background-image: url('./assets/img/logout-icon.png');
+} */
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .patient-nav {
+    width: 60px;
+    overflow: hidden;
+    transition: width 0.3s ease;
+  }
+  
+  .patient-nav:hover {
+    width: 250px;
+  }
+  
+  .patient-nav__profile {
+    align-items: center;
+  }
+  
+  .patient-nav__name,
+  .patient-nav__id {
+    display: none;
+  }
+  
+  .patient-nav:hover .patient-nav__name,
+  .patient-nav:hover .patient-nav__id {
+    display: block;
+  }
+  
+  .patient-nav__text {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .patient-nav:hover .patient-nav__text {
+    opacity: 1;
+  }
+  
+  .patient-nav__icon {
+    margin-right: 0;
+  }
+  
+  .patient-nav:hover .patient-nav__icon {
+    margin-right: 12px;
+  }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 480px) {
+  .patient-nav {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 10px;
+  }
+  
+  .patient-nav__profile {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 10px;
+  }
+  
+  .patient-nav__avatar {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+  
+  .patient-nav__info {
+    text-align: left;
+  }
+  
+  .patient-nav__name,
+  .patient-nav__id {
+    display: block;
+  }
+  
+  .patient-nav__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .patient-nav__item {
+    width: 50%;
+  }
+  
+  .patient-nav__link {
+    padding: 10px;
+  }
+  
+  .patient-nav__text {
+    opacity: 1;
+    font-size: 12px;
+  }
+}

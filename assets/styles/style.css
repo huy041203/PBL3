@@ -2,7 +2,9 @@
 @import url('header.css');
 @import url('footer.css');
 @import url('home.css');
+@import url('mainPatient.css');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 /* Các style khác cho trang web */
 body {
   font-family: 'Roboto', sans-serif;
