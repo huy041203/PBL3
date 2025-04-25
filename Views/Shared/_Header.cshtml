@@ -1,43 +1,107 @@
-﻿<header class="header">
-  <div class="header__logo">
-    <img src="~/img/Logo.png" alt="Logo Phòng Khám">
-  </div>
-  <nav class="header__nav">
-    <ul class="header__menu">
-      <li class="header__item header__item--active"><a href="#">TRANG CHỦ</a></li>
-      <li class="header__item"><a href="#">DỊCH VỤ</a></li>
-      <li class="header__item"><a href="#">CHUYÊN KHOA</a></li>
-      <li class="header__item"><a href="#">BÁC SĨ</a></li>
-      <li class="header__item"><a href="#">ĐẶT LỊCH HẸN</a></li>
-      <li class="header__item"><a href="#">LIÊN HỆ</a></li>
-      <li class="header__item">
-        @if (User.Identity.IsAuthenticated)
-        {
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">
-            Xin chào, @User.Identity.Name
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end">
-            @if (User.IsInRole("BenhNhan"))
-            {
-              <li><a class="dropdown-item" asp-controller="BenhNhan" asp-action="Profile">Tài khoản</a></li>
-            }
-            @if (User.IsInRole("BacSi"))
-            {
-              <li><a class="dropdown-item" asp-controller="BacSi" asp-action="Profile">Tài khoản</a></li>
-            }
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" asp-controller="Account" asp-action="Logout">Đăng xuất</a></li>
-          </ul>
-        }
-        else
-        {
-          <a data-bs-toggle="modal" data-bs-target="#loginModal">ĐĂNG NHẬP</a>
-        }
-      </li>
-    </ul>
-  </nav>
-  <div class="header__search">
-    <input type="text" placeholder="Tìm kiếm bác sĩ..." class="header__search-input">
-    <img src="~/img/search.png" alt="Icon_search" class="header__search-icon">
-  </div>
+﻿@* <header class="header"> *@
+@*   <div class="header__logo"> *@
+@*     <img src="~/img/Logo.png" alt="Logo Phòng Khám"> *@
+@*   </div> *@
+@*   <nav class="header__nav"> *@
+@*     <ul class="header__menu"> *@
+@*       <li class="header__item header__item--active"><a href="#">TRANG CHỦ</a></li> *@
+@*       <li class="header__item"><a href="#">DỊCH VỤ</a></li> *@
+@*       <li class="header__item"><a href="#">CHUYÊN KHOA</a></li> *@
+@*       <li class="header__item"><a href="#">BÁC SĨ</a></li> *@
+@*       <li class="header__item"><a href="#">ĐẶT LỊCH HẸN</a></li> *@
+@*       <li class="header__item"><a href="#">LIÊN HỆ</a></li> *@
+@*       <li class="header__item"> *@
+@*         @if (User.Identity.IsAuthenticated) *@
+@*         { *@
+@*           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown"> *@
+@*             Xin chào, @User.Identity.Name *@
+@*           </a> *@
+@*           <ul class="dropdown-menu dropdown-menu-end"> *@
+@*             @if (User.IsInRole("BenhNhan")) *@
+@*             { *@
+@*               <li><a class="dropdown-item" asp-controller="BenhNhan" asp-action="Profile">Tài khoản</a></li> *@
+@*             } *@
+@*             @if (User.IsInRole("BacSi")) *@
+@*             { *@
+@*               <li><a class="dropdown-item" asp-controller="BacSi" asp-action="Profile">Tài khoản</a></li> *@
+@*             } *@
+@*             <li><hr class="dropdown-divider"></li> *@
+@*             <li><a class="dropdown-item" asp-controller="Account" asp-action="Logout">Đăng xuất</a></li> *@
+@*           </ul> *@
+@*         } *@
+@*         else *@
+@*         { *@
+@*           <a data-bs-toggle="modal" data-bs-target="#loginModal">ĐĂNG NHẬP</a> *@
+@*         } *@
+@*       </li> *@
+@*     </ul> *@
+@*   </nav> *@
+@*   <div class="header__search"> *@
+@*     <input type="text" placeholder="Tìm kiếm bác sĩ..." class="header__search-input"> *@
+@*     <img src="~/img/search.png" alt="Icon_search" class="header__search-icon"> *@
+@*   </div> *@
+@* </header> *@
+
+<header class="header">
+    <div class="header__logo">
+        <img src="~/img/Logo.png" alt="Logo Phòng Khám">
+    </div>
+    <nav class="header__nav">
+        <ul class="header__menu">
+            <li class="header__item trangchu"><a href="#slider">TRANG CHỦ</a></li>
+            <li class="header__item dichvu"><a href="#services">DỊCH VỤ</a></li>
+            <li class="header__item chuyenkhoa"><a href="#chuyenkhoa">CHUYÊN KHOA</a></li>
+            <li class="header__item topbacsi"><a href="#topbacsi">BÁC SĨ</a></li>
+            <li class="header__item datlichhen"><a href="#">ĐẶT LỊCH HẸN</a></li>
+            <li class="header__item lienhe"><a href="#footer">LIÊN HỆ</a></li>
+            <li class="header__item dangnhap" id="login-btn"><a href="#">ĐĂNG NHẬP</a></li>
+        </ul>
+    </nav>
+    <div class="header__search">
+        <input type="text" placeholder="Tìm kiếm bác sĩ..." class="header__search-input">
+        <img src="~/img/search.png" alt="Icon_search" class="header__search-icon">
+    </div>
 </header>
+
+
+<script>
+    function setupSmoothScroll() {
+        const headerHeight = document.querySelector('.header').offsetHeight + 50;
+
+        function smoothScrollTo(targetSelector) {
+            const checkAndScroll = () => {
+                const target = document.querySelector(targetSelector);
+                if (target) {
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: "smooth",
+                    });
+                    return true;
+                }
+                return false;
+            };
+
+            if (!checkAndScroll()) {
+                const interval = setInterval(() => {
+                    if (checkAndScroll()) {
+                        clearInterval(interval);
+                    }
+                }, 100);
+            }
+        }
+
+        // Gán sự kiện cho tất cả các thẻ a có href bắt đầu bằng #
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+                const targetSelector = this.getAttribute("href");
+                smoothScrollTo(targetSelector);
+            });
+        });
+    }
+
+    // Khởi động khi DOM đã sẵn sàng
+    document.addEventListener("DOMContentLoaded", setupSmoothScroll);
+</script>
+
