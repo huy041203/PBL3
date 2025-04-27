@@ -1,91 +1,87 @@
 @model PBL3.Models.ViewModels.RegisterViewModel
 
 <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content" style="background: transparent; border: none;">
-      <div class="register__container">
-        <div class="register__content">
-          <div class="register__logo">
-            <img src="~/img/Logo.png" alt="Medicare Clinic Logo" class="register__logo-image">
-            <h1 class="register__logo-text">
-              <span>MEDICARE</span><br>
-              <span>CLINIC</span>
-            </h1>
-          </div>
-          
-          <form id="registerForm" asp-action="Register" asp-controller="Account" method="post" class="register__form">
-            <h2 class="register__title">Đăng ký</h2>
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
-            @if (TempData["RegisterError"] != null)
-            {
-                <div class="alert alert-danger">
-                    @TempData["RegisterError"]
-                </div>
-            }
-            
-            <div class="register__form-group">
-              <input asp-for="FullName" class="register__input" placeholder="Họ và tên" required>
-              <span asp-validation-for="FullName" class="text-danger"></span>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="background: transparent; border: none;">
+            <div class="register__container">
+
+
+                <form id="registerForm" asp-action="Register" asp-controller="Account" method="post" class="register__form">
+                    @if (TempData["RegisterError"] != null)
+                    {
+                        <div class="alert alert-danger">
+                            @TempData["RegisterError"]
+                        </div>
+                    }
+                    <div class="register__content-right">
+                        <div class="register__logo">
+                            <img src="~/img/Logo.png" alt="Medicare Clinic Logo" class="register__logo-image">
+                            <h1 class="register__logo-text">
+                                <span>MEDICARE</span><br>
+                                <span>CLINIC</span>
+                            </h1>
+                        </div>
+                        <h2 class="register__title">Đăng ký</h2>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="register__form-group">
+                            <input asp-for="FullName" class="register__input" placeholder="Họ và tên" required>
+                            <span asp-validation-for="FullName" class="text-danger"></span>
+                        </div>
+
+                        <div class="register__form-group register__radio-container">
+                            <div class="register__radio-group">
+                                <label>
+                                    <input asp-for="Gender" type="radio" value="0" checked /> Nữ
+                                </label>
+                                <label>
+                                    <input asp-for="Gender" type="radio" value="1" /> Nam
+                                </label>
+                            </div>
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+                        </div>
+
+                        <div class="register__form-group">
+                            <input asp-for="DateOfBirth" class="register__input" placeholder="Ngày sinh" type="date" required>
+                            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                        </div>
+
+                        <div class="register__form-group">
+                            <input asp-for="IdentityCard" class="register__input" placeholder="Số CCCD" required>
+                            <span asp-validation-for="IdentityCard" class="text-danger"></span>
+                        </div>
+                        <div class="register__form-group">
+                            <input asp-for="Address" class="register__input" placeholder="Địa chỉ cư trú" required>
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="register__content-left">
+                        <div class="register__form-group">
+                            <input asp-for="Email" class="register__input" placeholder="Địa chỉ email" required>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="register__form-group">
+                            <input asp-for="PhoneNumber" class="register__input" placeholder="Số điện thoại" required>
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+
+                        <div class="register__form-group">
+                            <input asp-for="Password" class="register__input" placeholder="Mật khẩu" type="password" required>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="register__form-group">
+                            <input asp-for="ConfirmPassword" class="register__input" placeholder="Nhập lại mật khẩu" type="password" required>
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <button type="submit" form="registerForm" class="register__button">Đăng ký</button>
+
+                        <p class="register__login">
+                            Bạn đã có tài khoản? <a href="#" class="register__login-link" id="switchToLogin">Đăng nhập</a>
+                        </p>
+                    </div>
+                </form>
             </div>
-            
-            <div class="register__form-group register__radio-container">
-              <div class="register__radio-group">
-                <label>
-                  <input asp-for="Gender" type="radio" value="0" checked /> Nữ
-                </label>
-                <label>
-                  <input asp-for="Gender" type="radio" value="1" /> Nam
-                </label>
-              </div>
-              <span asp-validation-for="Gender" class="text-danger"></span>
-            </div>
-            
-            <div class="register__form-group">
-              <input asp-for="DateOfBirth" class="register__input" placeholder="Ngày sinh" type="date" required>
-              <span asp-validation-for="DateOfBirth" class="text-danger"></span>
-            </div>
-            
-            <div class="register__form-group">
-              <input asp-for="IdentityCard" class="register__input" placeholder="Số CCCD" required>
-              <span asp-validation-for="IdentityCard" class="text-danger"></span>
-            </div>
-            
-            <div class="register__form-group">
-              <input asp-for="Address" class="register__input" placeholder="Địa chỉ cư trú" required>
-              <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            
-            <div class="register__form-group">
-              <input asp-for="Email" class="register__input" placeholder="Địa chỉ email" required>
-              <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            
-            <div class="register__form-group">
-              <input asp-for="PhoneNumber" class="register__input" placeholder="Số điện thoại" required>
-              <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-            </div>
-            
-            <div class="register__form-group">
-              <input asp-for="Password" class="register__input" placeholder="Mật khẩu" type="password" required>
-              <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            
-            <div class="register__form-group">
-              <input asp-for="ConfirmPassword" class="register__input" placeholder="Nhập lại mật khẩu" type="password" required>
-              <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-            </div>
-          </form>
-          
-          <div class="register__button-container">
-            <button type="submit" form="registerForm" class="register__button">Đăng ký</button>
-          </div>
-          
-          <p class="register__login">
-            Bạn đã có tài khoản? <a href="#" class="register__login-link" id="switchToLogin">Đăng nhập</a>
-          </p>
         </div>
-      </div>
     </div>
-  </div>
 </div>

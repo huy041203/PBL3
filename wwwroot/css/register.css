@@ -1,143 +1,234 @@
-.register {
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* min-height: 100vh; */
-  background-color: #eaf6ff;
-}
-
-.register__container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  margin: 0 auto;
-  background-color: #002147;
-  padding: 30px;
-  color: white;
-}
-
-.register__image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  background-color: #d9f0ff;
-  flex-direction: column;
-}
-
-.register__image-content {
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-  transform: scaleX(-1);
-}
-
-.register__logo {
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.register__logo-text {
-  font-size: 18px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-left: 10px;
-  color: white;
-}
-
-.register__logo-image {
-  max-width: 50px;
-}
-
-.register__title {
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-  margin-bottom: 20px;
-  text-align: center;
+﻿.register__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    color: #002147;
+    margin: 0 auto;
+    padding-bottom: 20px;
 }
 
 .register__form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.register__content-left,
+.register__content-right {
+    flex: 1;
+    min-width: 300px;
+}
+
+.register__content-left {
+    padding: 126px 30px 0 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.register__content-right {
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.register__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 2px;
+}
+
+.register__logo-image {
+    max-width: 50px;
+    height: auto;
+}
+
+.register__logo-text {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 10px;
+    color: #002147;
+    line-height: 1.2;
+}
+
+.register__title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #002147;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-top: -0.2px;
 }
 
 .register__form-group {
-  flex: 0 0 calc(50% - 10px);
-  margin-bottom: 15px;
+    margin-bottom: 15px;
+    width: 100%;
 }
 
 .register__input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    color: #002147;
+    box-sizing: border-box;
 }
 
-.register__input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
+    .register__input:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    }
+
+    .register__input::placeholder {
+        color: #6c757d;
+    }
 
 .register__radio-container {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
+    margin: 10px 0px 23px;
 }
 
 .register__radio-group {
-  display: flex;
-  gap: 20px;
+    display: flex;
+    gap: 20px;
 }
 
-.register__radio-group label {
-  display: flex;
-  align-items: center;
-  color: white;
-  gap: 5px;
-}
+    .register__radio-group label {
+        display: flex;
+        align-items: center;
+        color: #002147;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .register__radio-group input[type="radio"] {
+        accent-color: #007bff;
+        width: 16px;
+        height: 16px;
+    }
 
 .register__button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    width: 100%;
 }
 
 .register__button {
-  background-color: #1a75ff;
-  color: white;
-  width: auto;
-  min-width: 200px;
-  padding: 10px 30px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
+    .register__button:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+    }
+
+    .register__button:active {
+        transform: translateY(0);
+    }
+
 .register__login {
-  text-align: center;
-  margin-top: 15px;
+    text-align: center;
+    margin-top: 10px;
+    width: 100%;
+    font-size: 14px;
 }
 
 .register__login-link {
-  color: white;
-  text-decoration: underline;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+    .register__login-link:hover {
+        text-decoration: underline;
+    }
+
+/* Điều chỉnh input date */
+input[type="date"] {
+    padding: 10px 15px;
+}
+
+/* Thông báo lỗi */
+.text-danger {
+    color: #dc3545;
+    font-size: 13px;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Bootstrap Modal Customization */
+.modal-dialog.modal-lg {
+    max-width: 800px;
+    margin: 1.75rem auto;
+}
+
+.modal-content {
+    border: none;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .register__form-group {
-    flex: 1 1 100%;
-  }
+    .register__container {
+        max-width: 100%;
+    }
+
+    .register__form {
+        flex-direction: column-reverse;
+    }
+
+    .register__content-left,
+    .register__content-right {
+        width: 100%;
+        flex: none;
+        padding: 20px;
+    }
+
+    .register__content-left {
+        padding-top: 0;
+    }
+
+    .register__logo {
+        margin-bottom: 10px;
+    }
+
+    .register__title {
+        margin-bottom: 15px;
+    }
+
+    .register__button {
+        width: 100%;
+    }
 }
 
-.modal-dialog.modal-lg {
-  max-width: 850px;
+@media (max-width: 480px) {
+    .register__content-left,
+    .register__content-right {
+        padding: 15px;
+    }
+
+    .register__form-group {
+        margin-bottom: 12px;
+    }
+
+    .register__input {
+        padding: 10px 12px;
+    }
 }
