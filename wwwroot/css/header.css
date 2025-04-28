@@ -1,68 +1,102 @@
-﻿.header {
-  position: fixed; /* Giữ cố định header */
-  top: 0; /* Đặt ở trên cùng */
-  left: 0;
-  width: 100%; /* Chiếm toàn bộ chiều rộng */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #f5f5f5;
-  padding: 10px 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Tạo hiệu ứng đổ bóng */
-  z-index: 1000; /* Đảm bảo header hiển thị trên cùng */
+﻿body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Ngăn cuộn ngang */
+}
+
+
+/*.content {
+    padding: 20px;
+}
+*/
+.header {
+    position: fixed; /* Giữ cố định header */
+    top: 0; /* Đặt ở trên cùng */
+    left: 0;
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f5f5f5;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Tạo hiệu ứng đổ bóng */
+    z-index: 1000; /* Đảm bảo header hiển thị trên cùng */
 }
 
 /* Logo */
 .header__logo img {
-  width: 50px;
+    width: 50px;
 }
 
 
 /* Navigation */
 .header__nav {
-  flex-grow: 1;
+    flex-grow: 1;
 }
 
 .header__menu {
-  list-style: none;
-  justify-content: center;
-  display: flex;
-  gap: 35px;
+    margin-top: 15px;
+    list-style: none;
+    justify-content: center;
+    display: flex;
+    gap: 35px;
 }
 
+/* Hiệu ứng hover cho các mục trong menu */
 .header__item a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
+    text-decoration: none;
+    color: #002147;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease; /* Hiệu ứng chuyển màu chữ */
 }
 
-.header__item--active a {
-  color: #00bfbf;
-  font-weight: bold;
-}
+    .header__item a:hover {
+        font-weight: bold;
+        color: #00bfbf; /* Đổi màu chữ khi hover */
+    }
+
+    .header__item a::after {
+        content: "";
+        position: absolute;
+        left: 50%; /* Bắt đầu từ giữa chữ */
+        bottom: -5px; /* Dưới chữ */
+        width: 0;
+        height: 2.2px;
+        border-radius:10%;
+        background-color: #00bfbf; /* Màu underline */
+        transition: width 0.3s ease, left 0.3s ease; /* Hiệu ứng mở rộng underline */
+    }
+
+    .header__item a:hover::after {
+        width: 100%; /* Mở rộng underline bằng chiều dài chữ */
+        left: 0; /* Đưa underline về đầu chữ */
+    }
 
 /* Search bar */
 .header__search {
-  display: flex;
-  align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 3px 5px;
-  background: white;
-  margin-right: 40px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 3px 6px;
+    background: white;
+    margin-right: 40px;
 }
 
 .header__search-input {
-  border: none;
-  outline: none;
-  padding: 5px;
-  width: 200px; /* Chiều rộng của ô input */
+    color: #002147;
+    border: none;
+    outline: none;
+    padding: 5px;
+    width: 200px; /* Chiều rộng của ô input */
 }
 
 /* Icon tìm kiếm */
 .header__search-icon {
-  width: 20px; /* Điều chỉnh kích thước icon */
-  height: 20px;
-  margin-left: 5px; /* Tạo khoảng cách với ô input */
-  cursor: pointer; /* Khi hover vào icon sẽ có hiệu ứng click */
+    width: 20px; /* Điều chỉnh kích thước icon */
+    height: 20px;
+    margin-left: 5px; /* Tạo khoảng cách với ô input */
+    cursor: pointer; /* Khi hover vào icon sẽ có hiệu ứng click */
 }

@@ -1,49 +1,46 @@
-@model PBL3.Models.ViewModels.LoginViewModel
-
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" style="background-color: #002147; color: white;">
-    <div class="modal-content" style="background: transparent; border: none;">
-      <div class="login__container">
-        <div class="login__content" style="background-color: #002147; color: white;">
-          <div class="login__logo">
-            <img src="~/img/Logo.png" alt="Medicare Clinic Logo" class="login__logo-image">
-            <h1 class="login__logo-text">
-              <span style="color: white;">MEDICARE</span><br>
-              <span style="color: white;">CLINIC</span>
-            </h1>
-          </div>
-          <h2 class="login__title" style="color: white;">Đăng nhập</h2>
-          <form asp-action="Login" asp-controller="Account" asp-route-returnUrl="@Context.Request.Path" method="post" class="login__form">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
-            @if (TempData["LoginError"] != null)
-            {
-                <div class="alert alert-danger">
-                    @TempData["LoginError"]
+ @model PBL3.Models.ViewModels.LoginViewModel
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true" data-bs-backdrop="true" data-bs-keyboard="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content" style="background: white; border-radius: 10px; overflow: hidden;">
+            <div class="login__container">
+                <div class="login__content-left">
+                    <div class="login__logo">
+                        <img src="~/img/Logo.png" alt="Medicare Clinic Logo" class="loginlogo-image">
+                        <h1 class="login__logo-text">
+                            <span class="login__logo-text--medicare">MEDICARE</span><br>
+                            <span class="loginlogo-text--clinic">CLINIC</span>
+                        </h1>
+                    </div>
+                    <h2 class="logintitle">Đăng nhập</h2>
+                    <form asp-action="Login" asp-controller="Account" asp-route-returnUrl="@Context.Request.Path" method="post" class="loginform">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        @if (TempData["LoginError"] != null)
+                        {
+                            <div class="alert alert-danger">
+                                @TempData["LoginError"]
+                            </div>
+                        }
+                        <div class="loginform-group">
+                            <input asp-for="Username" class="logininput" placeholder="Tên đăng nhập" required>
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                        </div>
+                        <div class="loginform-group">
+                            <input asp-for="Password" class="logininput" placeholder="Mật khẩu" required>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="loginform-links">
+                            <a href="#" class="loginforgot-password">Quên mật khẩu?</a>
+                        </div>
+                        <button type="submit" class="loginbutton">Đăng nhập</button>
+                    </form>
+                    <p class="loginregister">
+                        Bạn chưa có tài khoản? <a href="#" class="loginregister-link" id="switchToRegister">Đăng ký</a>
+                    </p>
                 </div>
-            }
-            
-            <div class="login__form-group">
-              <input asp-for="Username" class="login__input" placeholder="Tên đăng nhập" required>
-              <span asp-validation-for="Username" class="text-danger"></span>
+                <div class="login__content-right">
+                    <img src="~/img/Doctor_Banner.png" alt="Doctor" class="loginimage-content">
+                </div>
             </div>
-            <div class="login__form-group">
-              <input asp-for="Password" class="login__input" placeholder="Mật khẩu" required>
-              <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="login__form-links">
-              <a href="#" class="login__forgot-password" style="color: white;">Quên mật khẩu?</a>
-            </div>
-            <button type="submit" class="login__button">Đăng nhập</button>
-          </form>
-          <p class="login__register" style="color: white;">
-            Bạn chưa có tài khoản? <a href="#" class="login__register-link" style="color: #ffffff; text-decoration: underline;" id="switchToRegister">Đăng ký</a>
-          </p>
         </div>
-        <div class="login__image">
-          <img src="~/img/doctor_login.png" alt="Doctor" class="login__image-content">
-        </div>
-      </div>
     </div>
-  </div>
 </div>
