@@ -1,0 +1,115 @@
+@model IEnumerable<PBL3.Models.BacSi>
+
+<section class="booking">
+  <!-- Search Area -->
+  <div class="booking__search">
+    <form class="search__form">
+      <input
+        type="text"
+        class="search__input"
+        placeholder="Tìm kiếm bằng Chuyên Khoa"
+      />
+      <button type="submit" class="search__button">Tìm kiếm</button>
+    </form>
+  </div>
+
+  <!-- Content Area -->
+  <div class="booking__content">
+    <!-- Doctor List Column -->
+    <div class="booking__doctors">
+      <h2 class="booking__heading">Bác sĩ</h2>
+
+      @foreach (var bacSi in Model)
+      {
+        <!-- Doctor Card -->
+        <div class="doctor-card">
+          <div class="doctor-card__image">
+            <img src="../assets/img/Group 35.png" alt="@bacSi.HoTen" />
+          </div>
+          <div class="doctor-card__info">
+            <h3 class="doctor-card__name">@bacSi.HoTen</h3>
+            <p class="doctor-card__specialty">
+              @bacSi.Khoa.TenKhoa
+            </p>
+            <div class="doctor-card__actions">
+              <button class="doctor-card__button">Đặt lịch khám</button>
+              <span class="doctor-card__label">Dành cho người lớn</span>
+            </div>
+            <p class="doctor-card__price">Giá từ @bacSi.GiaKham.ToString("N0") đ</p>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Availability Column -->
+    <div class="booking__availability">
+      <h3 class="availability__title">Còn trống trong tuần</h3>
+      <div class="availability__days">
+        <div class="availability__day">
+          <input
+            type="radio"
+            name="day"
+            id="monday"
+            class="availability__checkbox"
+          />
+          <label for="monday" class="availability__label">Thứ hai</label>
+        </div>
+        <div class="availability__day">
+          <input
+            type="radio"
+            name="day"
+            id="tuesday"
+            class="availability__checkbox"
+          />
+          <label for="tuesday" class="availability__label">Thứ ba</label>
+        </div>
+        <div class="availability__day">
+          <input
+            type="radio"
+            name="day"
+            id="wednesday"
+            class="availability__checkbox"
+          />
+          <label for="wednesday" class="availability__label">Thứ tư</label>
+        </div>
+        <div class="availability__day">
+          <input
+            type="radio"
+            name="day"
+            id="thursday"
+            class="availability__checkbox"
+          />
+          <label for="thursday" class="availability__label">Thứ năm</label>
+        </div>
+        <div class="availability__day">
+          <input
+            type="radio"
+            name="day"
+            id="friday"
+            class="availability__checkbox"
+          />
+          <label for="friday" class="availability__label">Thứ sáu</label>
+        </div>
+        <div class="availability__day">
+          <input
+            type="radio"
+            name="day"
+            id="saturday"
+            class="availability__checkbox"
+          />
+          <label for="saturday" class="availability__label">Thứ bảy</label>
+        </div>
+        <div class="availability__day">
+          <input
+            type="radio"
+            name="day"
+            id="sunday"
+            class="availability__checkbox"
+          />
+          <label for="sunday" class="availability__label">Chủ nhật</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<link rel="stylesheet" href="~/css/booking.css" />

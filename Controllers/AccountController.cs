@@ -67,15 +67,13 @@ namespace PBL3.Controllers
 
                 TempData["Success"] = "Đăng nhập thành công!";
 
-                // Người dùng đang cố truy cập một trang cụ thể
-                if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
-                    return Redirect(returnUrl);
+
                 
                 // Điều hướng mặc định dựa vào role
                 switch (role.RoleName)
                 {
-                    case "BenhNhan":
-                        return RedirectToAction("TongQuan", "DatLichHen");
+                    case "Patient":
+                        return RedirectToAction("Booking", "Home");
                     case "BacSi":
                         return RedirectToAction("LichLamViec", "BacSi");
                     case "Admin":

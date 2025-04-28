@@ -17,11 +17,11 @@
             Xin chào, @User.Identity.Name
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
-            @if (User.IsInRole("BenhNhan"))
+            @if (User.IsInRole("Patient"))
             {
               <li><a class="dropdown-item" asp-controller="BenhNhan" asp-action="Profile">Tài khoản</a></li>
             }
-            @if (User.IsInRole("BacSi"))
+            @if (User.IsInRole("Doctor"))
             {
               <li><a class="dropdown-item" asp-controller="BacSi" asp-action="Profile">Tài khoản</a></li>
             }
