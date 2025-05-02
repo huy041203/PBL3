@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace PBL3.Models
@@ -16,7 +17,7 @@ namespace PBL3.Models
 
     public DateTime CreatedAt { get; set; } = new DateTime(2023, 5, 15);
 
-    // Navigation property
-    public User? User { get; set; }
+    // Navigation properties
+    public ICollection<User> Users { get; set; } = [];
   }
 }

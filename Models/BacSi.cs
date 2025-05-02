@@ -59,5 +59,7 @@ namespace PBL3.Models
     public ICollection<Slot> Slots { get; set; } = [];
     
     public ICollection<BanGhiYTe> BanGhiYTes { get; set; } = [];
+
+    public ICollection<LichHenKham> LichHenKhams { get; set; } = [];
   }
 }

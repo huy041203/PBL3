@@ -16,6 +16,8 @@ namespace PBL3.Models
 
     public int BacSiId { get; set; }
 
+    public int LichHenId { get; set; }
+
     public DateTime? ThoiGianBatDauKhamThucTe { get; set; }
 
     public DateTime? ThoiGianKetThucKham { get; set; }
@@ -51,8 +53,13 @@ namespace PBL3.Models
     [ForeignKey("BacSiId")]
     public BacSi BacSi { get; set; } = null!;
 
+    [ForeignKey("LichHenId")]
+    public LichHenKham LichHenKham { get; set; } = null!;
+
     public DonThuoc? DonThuoc { get; set; }
 
     public ICollection<KetQuaXetNghiem> KetQuaXetNghiems { get; set; } = [];
+
+    public ICollection<ChanDoanLamSan> ChanDoanLamSans { get; set; } = [];
   }
 }

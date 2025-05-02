@@ -60,19 +60,22 @@ namespace PBL3.Data
       modelBuilder.Entity<BacSi>()
           .HasOne(b => b.Khoa)
           .WithMany(k => k.BacSis)
-          .HasForeignKey(b => b.KhoaId);
+          .HasForeignKey(b => b.KhoaId)
+          .OnDelete(DeleteBehavior.NoAction);
 
       // BacSi-LichLamViec relationship
       modelBuilder.Entity<LichLamViec>()
           .HasOne(l => l.BacSi)
           .WithMany(b => b.LichLamViecs)
-          .HasForeignKey(l => l.BacSiId);
+          .HasForeignKey(l => l.BacSiId)
+          .OnDelete(DeleteBehavior.NoAction);
 
       // LichLamViec-Slot relationship
       modelBuilder.Entity<Slot>()
           .HasOne(s => s.LichLamViec)
           .WithMany(l => l.Slots)
-          .HasForeignKey(s => s.LichLamViecId);
+          .HasForeignKey(s => s.LichLamViecId)
+          .OnDelete(DeleteBehavior.NoAction);
 
       // BacSi-Slot relationship
       modelBuilder.Entity<Slot>()
@@ -85,13 +88,15 @@ namespace PBL3.Data
       modelBuilder.Entity<BanGhiYTe>()
           .HasOne(b => b.Slot)
           .WithOne(s => s.BanGhiYTe)
-          .HasForeignKey<BanGhiYTe>(b => b.SlotId);
+          .HasForeignKey<BanGhiYTe>(b => b.SlotId)
+          .OnDelete(DeleteBehavior.NoAction);
 
       // BenhNhan-BanGhiYTe relationship
       modelBuilder.Entity<BanGhiYTe>()
           .HasOne(b => b.BenhNhan)
           .WithMany(bn => bn.BanGhiYTes)
-          .HasForeignKey(b => b.BenhNhanId);
+          .HasForeignKey(b => b.BenhNhanId)
+          .OnDelete(DeleteBehavior.NoAction);
 
       // BacSi-BanGhiYTe relationship
       modelBuilder.Entity<BanGhiYTe>()
@@ -100,23 +105,47 @@ namespace PBL3.Data
           .HasForeignKey(b => b.BacSiId)
           .OnDelete(DeleteBehavior.NoAction);
 
+      // LichHenKham-BacSi relationship
+      modelBuilder.Entity<LichHenKham>()
+          .HasOne(l => l.BacSi)
+          .WithMany(b => b.LichHenKhams)
+          .HasForeignKey(l => l.BacSiId)
+          .OnDelete(DeleteBehavior.NoAction);
+
+      // LichHenKham-BenhNhan relationship
+      modelBuilder.Entity<LichHenKham>()
+          .HasOne(l => l.BenhNhan)
+          .WithMany(bn => bn.LichHenKhams)
+          .HasForeignKey(l => l.BenhNhanId)
+          .OnDelete(DeleteBehavior.NoAction);
+
+      // LichHenKham-BanGhiYTe relationship
+      modelBuilder.Entity<BanGhiYTe>()
+          .HasOne(b => b.LichHenKham)
+          .WithOne(l => l.BanGhiYTe)
+          .HasForeignKey<BanGhiYTe>(b => b.LichHenId)
+          .OnDelete(DeleteBehavior.NoAction);
+
       // BanGhiYTe-DonThuoc relationship
       modelBuilder.Entity<BanGhiYTe>()
           .HasOne(b => b.DonThuoc)
           .WithOne(d => d.BanGhiYTe)
-          .HasForeignKey<DonThuoc>(d => d.BanGhiYTeId);
+          .HasForeignKey<DonThuoc>(d => d.BanGhiYTeId)
+          .OnDelete(DeleteBehavior.NoAction);
 
       // DonThuoc-ChiTietDonThuoc relationship
       modelBuilder.Entity<ChiTietDonThuoc>()
           .HasOne(c => c.DonThuoc)
           .WithMany(d => d.ChiTietDonThuocs)
-          .HasForeignKey(c => c.DonThuocId);
+          .HasForeignKey(c => c.DonThuocId)
+          .OnDelete(DeleteBehavior.NoAction);
 
       // ChiTietDonThuoc-Thuoc relationship
       modelBuilder.Entity<ChiTietDonThuoc>()
           .HasOne(c => c.Thuoc)
           .WithMany(t => t.ChiTietDonThuocs)
-          .HasForeignKey(c => c.ThuocId);
+          .HasForeignKey(c => c.ThuocId)
+          .OnDelete(DeleteBehavior.NoAction);
 
       // BenhNhan-DonThuoc relationship
       modelBuilder.Entity<DonThuoc>()
@@ -129,27 +158,40 @@ namespace PBL3.Data
       modelBuilder.Entity<DonThuoc>()
           .HasOne(d => d.Thuoc)
           .WithMany(t => t.DonThuocs)
-          .HasForeignKey(d => d.ThuocId);
+          .HasForeignKey(d => d.ThuocId)
+          .OnDelete(DeleteBehavior.NoAction);
 
-      // KetQuaXetNghiem relationships
+      // KetQuaXetNghiem-BanGhiYTe relationship
       modelBuilder.Entity<KetQuaXetNghiem>()
           .HasOne(k => k.BanGhiYTe)
           .WithMany(b => b.KetQuaXetNghiems)
-          .HasForeignKey(k => k.BanGhiYTeId);
+          .HasForeignKey(k => k.BanGhiYTeId)
+          .OnDelete(DeleteBehavior.NoAction);
 
+      // KetQuaXetNghiem-NhanVienYT relationship
       modelBuilder.Entity<KetQuaXetNghiem>()
           .HasOne(k => k.NhanVienYT)
           .WithMany(n => n.KetQuaXetNghiems)
           .HasForeignKey(k => k.NhanVienId)
           .OnDelete(DeleteBehavior.NoAction);
 
+      // KetQuaXetNghiem-BenhNhan relationship
       modelBuilder.Entity<KetQuaXetNghiem>()
           .HasOne(k => k.BenhNhan)
           .WithMany(bn => bn.KetQuaXetNghiems)
           .HasForeignKey(k => k.BenhNhanId)
           .OnDelete(DeleteBehavior.NoAction);
 
+      // ChanDoanLamSan-BanGhiYTe relationship
+      modelBuilder.Entity<ChanDoanLamSan>()
+          .HasOne(c => c.BanGhiYTe)
+          .WithMany(b => b.ChanDoanLamSans)
+          .HasForeignKey(c => c.BanGhiYTeId)
+          .OnDelete(DeleteBehavior.NoAction);
+
       // Seed initial data
+      var fixedDate = new DateTime(2023, 5, 1);
+
       modelBuilder.Entity<Role>().HasData(
           new Role { Id = 1, RoleName = "Admin" },
           new Role { Id = 2, RoleName = "Doctor" },
@@ -167,6 +209,8 @@ namespace PBL3.Data
           new Khoa { Id = 7, TenKhoa = "Khoa Da liễu", IsActive = true }
       );
 
+      // Sau khi hoàn thành cấu trúc, có thể bỏ comment đoạn code seed data dưới đây
+      /*
       // Seed Users for doctors
       modelBuilder.Entity<User>().HasData(
           new User 
@@ -175,14 +219,14 @@ namespace PBL3.Data
               Username = "doctor1", 
               Email = "doctor1@gmail.com", 
               FullName = "Nguyễn Văn A", 
-              Password = "AQAAAAEAACcQAAAAEJmq47sOXHAcSZV1UrBbGkmAw8xK5FQfPV9kUK8LWZ1hEMv/wJBLnmTyLO0fLjqKxA==", // "123456"
+              Password = "AQAAAAEAACcQAAAAEJmq47sOXHAcSZV1UrBbGkmAw8xK5FQfPV9kUK8LWZ1hEMv/wJBLnmTyLO0fLjqKxA==",
               PhoneNumber = "0912345678", 
               Address = "Hà Nội", 
               Gender = Gender.Male, 
               RoleId = 2, 
               IsActive = true,
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now
+              CreatedAt = fixedDate,
+              UpdatedAt = fixedDate
           },
           new User 
           { 
@@ -196,8 +240,8 @@ namespace PBL3.Data
               Gender = Gender.Female, 
               RoleId = 2, 
               IsActive = true,
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now
+              CreatedAt = fixedDate,
+              UpdatedAt = fixedDate
           },
           new User 
           { 
@@ -211,8 +255,8 @@ namespace PBL3.Data
               Gender = Gender.Male, 
               RoleId = 2, 
               IsActive = true,
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now
+              CreatedAt = fixedDate,
+              UpdatedAt = fixedDate
           }
       );
       
@@ -273,6 +317,7 @@ namespace PBL3.Data
               IsActive = true
           }
       );
+      */
     }
   }
 }

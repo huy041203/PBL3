@@ -12,8 +12,8 @@ using PBL3.Data;
 namespace PBL3.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250425095226_upadateData")]
-    partial class upadateData
+    [Migration("20250502114548_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,31 +35,37 @@ namespace PBL3.Migrations
 
                     b.Property<string>("CCCD")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(12)
+                        .HasColumnType("nvarchar(12)");
 
                     b.Property<string>("DiaChi")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
-                    b.Property<float>("GiaKham")
-                        .HasColumnType("real");
+                    b.Property<double>("DiemDanhGia")
+                        .HasColumnType("float");
+
+                    b.Property<decimal>("GiaKham")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("GioiTinh")
                         .HasColumnType("int");
 
                     b.Property<string>("HoTen")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
                     b.Property<int>("KhoaId")
                         .HasColumnType("int");
+
+                    b.Property<string>("MieuTa")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("NgaySinh")
                         .HasColumnType("datetime2");
@@ -70,7 +76,8 @@ namespace PBL3.Migrations
 
                     b.Property<string>("SoDienThoai")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.Property<int>("SoNamKinhNghiem")
                         .HasColumnType("int");
@@ -96,22 +103,68 @@ namespace PBL3.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("BacSiId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BenhNhanId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ChanDoan")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("DaKhamLamSan")
+                        .HasColumnType("bit");
+
                     b.Property<string>("GhiChu")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("KetQuaKham")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<int>("LichHenId")
                         .HasColumnType("int");
+
+                    b.Property<int>("SlotId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ThoiGianBatDauKhamThucTe")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ThoiGianKetThucKham")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TinhTrang")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("TrieuChung")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BacSiId");
+
+                    b.HasIndex("BenhNhanId");
+
                     b.HasIndex("LichHenId")
+                        .IsUnique();
+
+                    b.HasIndex("SlotId")
                         .IsUnique();
 
                     b.ToTable("BanGhiYTes");
@@ -125,9 +178,14 @@ namespace PBL3.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CCCD")
+                    b.Property<string>("Avatar")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CCCD")
+                        .IsRequired()
+                        .HasMaxLength(12)
+                        .HasColumnType("nvarchar(12)");
 
                     b.Property<string>("DiUng")
                         .IsRequired()
@@ -135,23 +193,35 @@ namespace PBL3.Migrations
 
                     b.Property<string>("DiaChi")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<int>("GioiTinh")
                         .HasColumnType("int");
 
                     b.Property<string>("HoTen")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime>("NgaySinh")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("SoDienThoai")
+                    b.Property<string>("NhomMau")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("SoDienThoai")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
+
                     b.Property<string>("SoDienThoaiNguoiThan")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
+
+                    b.Property<string>("TienSuBenh")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -179,38 +249,46 @@ namespace PBL3.Migrations
 
                     b.Property<string>("CanNang")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("ChieuCao")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("HuyetAp")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("NhietDo")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("NhipTim")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Note")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("TinhTrangBenh")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("TrieuChung")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.HasKey("Id");
 
@@ -229,17 +307,25 @@ namespace PBL3.Migrations
 
                     b.Property<string>("CachDung")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<decimal>("DonGia")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("DonThuocId")
                         .HasColumnType("int");
 
                     b.Property<string>("LieuLuong")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("SoLuong")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("ThanhTien")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ThuocId")
                         .HasColumnType("int");
@@ -264,12 +350,27 @@ namespace PBL3.Migrations
                     b.Property<int>("BanGhiYTeId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ChiDanSuDung")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("BenhNhanId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("GhiChu")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<decimal>("GiaThuoc")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("LuuLuong")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("ThuocId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -278,6 +379,10 @@ namespace PBL3.Migrations
 
                     b.HasIndex("BanGhiYTeId")
                         .IsUnique();
+
+                    b.HasIndex("BenhNhanId");
+
+                    b.HasIndex("ThuocId");
 
                     b.ToTable("DonThuocs");
                 });
@@ -293,26 +398,48 @@ namespace PBL3.Migrations
                     b.Property<int>("BanGhiYTeId")
                         .HasColumnType("int");
 
+                    b.Property<int>("BenhNhanId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BoPhanXetNghiem")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("KetQua")
+                    b.Property<string>("FileKetQua")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("GiaXetNghiem")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("KetQua")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("LoaiXetNghiem")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("NgayThucHien")
-                        .HasColumnType("datetime2");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("NhanVienId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime?>("ThoiGianBatDauXetNghiem")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ThoiGianKetThucXetNghiem")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.HasIndex("BanGhiYTeId");
+
+                    b.HasIndex("BenhNhanId");
 
                     b.HasIndex("NhanVienId");
 
@@ -327,12 +454,22 @@ namespace PBL3.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Icon")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
+                    b.Property<string>("MoTa")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
                     b.Property<string>("TenKhoa")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
@@ -342,43 +479,57 @@ namespace PBL3.Migrations
                         new
                         {
                             Id = 1,
+                            Icon = "",
                             IsActive = true,
+                            MoTa = "",
                             TenKhoa = "Khoa Nội"
                         },
                         new
                         {
                             Id = 2,
+                            Icon = "",
                             IsActive = true,
+                            MoTa = "",
                             TenKhoa = "Khoa Ngoại"
                         },
                         new
                         {
                             Id = 3,
+                            Icon = "",
                             IsActive = true,
+                            MoTa = "",
                             TenKhoa = "Khoa Nhi"
                         },
                         new
                         {
                             Id = 4,
+                            Icon = "",
                             IsActive = true,
+                            MoTa = "",
                             TenKhoa = "Khoa Sản"
                         },
                         new
                         {
                             Id = 5,
+                            Icon = "",
                             IsActive = true,
+                            MoTa = "",
                             TenKhoa = "Khoa Mắt"
                         },
                         new
                         {
                             Id = 6,
+                            Icon = "",
                             IsActive = true,
+                            MoTa = "",
                             TenKhoa = "Khoa Tai Mũi Họng"
                         },
                         new
                         {
                             Id = 7,
+                            Icon = "",
                             IsActive = true,
+                            MoTa = "",
                             TenKhoa = "Khoa Da liễu"
                         });
                 });
@@ -402,7 +553,15 @@ namespace PBL3.Migrations
 
                     b.Property<string>("LyDoKham")
                         .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("MaThanhToan")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("PhiKham")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("ThoiGian")
                         .HasColumnType("datetime2");
@@ -425,6 +584,33 @@ namespace PBL3.Migrations
                     b.ToTable("LichHenKhams");
                 });
 
+            modelBuilder.Entity("PBL3.Models.LichLamViec", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BacSiId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("NgayLamViec")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SoCaDuocKham")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SoSlotDaDat")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BacSiId");
+
+                    b.ToTable("LichLamViecs");
+                });
+
             modelBuilder.Entity("PBL3.Models.NhanVienYT", b =>
                 {
                     b.Property<int>("Id")
@@ -433,30 +619,50 @@ namespace PBL3.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("ChuyenMon")
+                    b.Property<string>("Avatar")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CCCD")
+                        .IsRequired()
+                        .HasMaxLength(12)
+                        .HasColumnType("nvarchar(12)");
+
                     b.Property<string>("DiaChi")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<decimal>("GiaXetNghiem")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("GioiTinh")
                         .HasColumnType("int");
 
                     b.Property<string>("HoTen")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
+                    b.Property<string>("LoaiXetNghiem")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<DateTime>("NgaySinh")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("SoDienThoai")
+                    b.Property<string>("PhongLamViec")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SoDienThoai")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -480,9 +686,14 @@ namespace PBL3.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("RoleName")
+                    b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -493,26 +704,71 @@ namespace PBL3.Migrations
                         {
                             Id = 1,
                             CreatedAt = new DateTime(2023, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "",
                             RoleName = "Admin"
                         },
                         new
                         {
                             Id = 2,
                             CreatedAt = new DateTime(2023, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "",
                             RoleName = "Doctor"
                         },
                         new
                         {
                             Id = 3,
                             CreatedAt = new DateTime(2023, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "",
                             RoleName = "Patient"
                         },
                         new
                         {
                             Id = 4,
                             CreatedAt = new DateTime(2023, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "",
                             RoleName = "Staff"
                         });
+                });
+
+            modelBuilder.Entity("PBL3.Models.Slot", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BacSiId")
+                        .HasColumnType("int");
+
+                    b.Property<TimeSpan>("GioBatDau")
+                        .HasColumnType("time");
+
+                    b.Property<TimeSpan>("GioKetThuc")
+                        .HasColumnType("time");
+
+                    b.Property<int>("LichLamViecId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("TienKham")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool>("TrangThaiDatLich")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("TrangThaiKham")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("TrangThaiThanhToan")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BacSiId");
+
+                    b.HasIndex("LichLamViecId");
+
+                    b.ToTable("Slots");
                 });
 
             modelBuilder.Entity("PBL3.Models.Thuoc", b =>
@@ -523,28 +779,32 @@ namespace PBL3.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<decimal>("Gia")
+                    b.Property<decimal>("GiaThuoc")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<DateTime>("HanSuDung")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("HSDMonth")
+                        .HasColumnType("int");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<int>("LoaiThuoc")
-                        .HasColumnType("int");
-
-                    b.Property<string>("MoTa")
+                    b.Property<string>("MaLa")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("MieuTa")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<DateTime>("NgaySanXuat")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("TenThuoc")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
@@ -561,29 +821,37 @@ namespace PBL3.Migrations
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("FullName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("Gender")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.Property<int>("RoleId")
                         .HasColumnType("int");
@@ -593,12 +861,12 @@ namespace PBL3.Migrations
 
                     b.Property<string>("Username")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoleId")
-                        .IsUnique();
+                    b.HasIndex("RoleId");
 
                     b.ToTable("Users");
                 });
@@ -608,7 +876,7 @@ namespace PBL3.Migrations
                     b.HasOne("PBL3.Models.Khoa", "Khoa")
                         .WithMany("BacSis")
                         .HasForeignKey("KhoaId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("PBL3.Models.User", "User")
@@ -624,13 +892,37 @@ namespace PBL3.Migrations
 
             modelBuilder.Entity("PBL3.Models.BanGhiYTe", b =>
                 {
+                    b.HasOne("PBL3.Models.BacSi", "BacSi")
+                        .WithMany("BanGhiYTes")
+                        .HasForeignKey("BacSiId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("PBL3.Models.BenhNhan", "BenhNhan")
+                        .WithMany("BanGhiYTes")
+                        .HasForeignKey("BenhNhanId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.HasOne("PBL3.Models.LichHenKham", "LichHenKham")
                         .WithOne("BanGhiYTe")
                         .HasForeignKey("PBL3.Models.BanGhiYTe", "LichHenId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
+                    b.HasOne("PBL3.Models.Slot", "Slot")
+                        .WithOne("BanGhiYTe")
+                        .HasForeignKey("PBL3.Models.BanGhiYTe", "SlotId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("BacSi");
+
+                    b.Navigation("BenhNhan");
+
                     b.Navigation("LichHenKham");
+
+                    b.Navigation("Slot");
                 });
 
             modelBuilder.Entity("PBL3.Models.BenhNhan", b =>
@@ -649,7 +941,7 @@ namespace PBL3.Migrations
                     b.HasOne("PBL3.Models.BanGhiYTe", "BanGhiYTe")
                         .WithMany("ChanDoanLamSans")
                         .HasForeignKey("BanGhiYTeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("BanGhiYTe");
@@ -660,13 +952,13 @@ namespace PBL3.Migrations
                     b.HasOne("PBL3.Models.DonThuoc", "DonThuoc")
                         .WithMany("ChiTietDonThuocs")
                         .HasForeignKey("DonThuocId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("PBL3.Models.Thuoc", "Thuoc")
                         .WithMany("ChiTietDonThuocs")
                         .HasForeignKey("ThuocId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("DonThuoc");
@@ -679,10 +971,26 @@ namespace PBL3.Migrations
                     b.HasOne("PBL3.Models.BanGhiYTe", "BanGhiYTe")
                         .WithOne("DonThuoc")
                         .HasForeignKey("PBL3.Models.DonThuoc", "BanGhiYTeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("PBL3.Models.BenhNhan", "BenhNhan")
+                        .WithMany("DonThuocs")
+                        .HasForeignKey("BenhNhanId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("PBL3.Models.Thuoc", "Thuoc")
+                        .WithMany("DonThuocs")
+                        .HasForeignKey("ThuocId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("BanGhiYTe");
+
+                    b.Navigation("BenhNhan");
+
+                    b.Navigation("Thuoc");
                 });
 
             modelBuilder.Entity("PBL3.Models.KetQuaXetNghiem", b =>
@@ -690,7 +998,13 @@ namespace PBL3.Migrations
                     b.HasOne("PBL3.Models.BanGhiYTe", "BanGhiYTe")
                         .WithMany("KetQuaXetNghiems")
                         .HasForeignKey("BanGhiYTeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("PBL3.Models.BenhNhan", "BenhNhan")
+                        .WithMany("KetQuaXetNghiems")
+                        .HasForeignKey("BenhNhanId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("PBL3.Models.NhanVienYT", "NhanVienYT")
@@ -701,6 +1015,8 @@ namespace PBL3.Migrations
 
                     b.Navigation("BanGhiYTe");
 
+                    b.Navigation("BenhNhan");
+
                     b.Navigation("NhanVienYT");
                 });
 
@@ -709,7 +1025,7 @@ namespace PBL3.Migrations
                     b.HasOne("PBL3.Models.BacSi", "BacSi")
                         .WithMany("LichHenKhams")
                         .HasForeignKey("BacSiId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("PBL3.Models.BenhNhan", "BenhNhan")
@@ -723,6 +1039,17 @@ namespace PBL3.Migrations
                     b.Navigation("BenhNhan");
                 });
 
+            modelBuilder.Entity("PBL3.Models.LichLamViec", b =>
+                {
+                    b.HasOne("PBL3.Models.BacSi", "BacSi")
+                        .WithMany("LichLamViecs")
+                        .HasForeignKey("BacSiId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("BacSi");
+                });
+
             modelBuilder.Entity("PBL3.Models.NhanVienYT", b =>
                 {
                     b.HasOne("PBL3.Models.User", "User")
@@ -734,11 +1061,30 @@ namespace PBL3.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("PBL3.Models.Slot", b =>
+                {
+                    b.HasOne("PBL3.Models.BacSi", "BacSi")
+                        .WithMany("Slots")
+                        .HasForeignKey("BacSiId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("PBL3.Models.LichLamViec", "LichLamViec")
+                        .WithMany("Slots")
+                        .HasForeignKey("LichLamViecId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("BacSi");
+
+                    b.Navigation("LichLamViec");
+                });
+
             modelBuilder.Entity("PBL3.Models.User", b =>
                 {
                     b.HasOne("PBL3.Models.Role", "Role")
-                        .WithOne("User")
-                        .HasForeignKey("PBL3.Models.User", "RoleId")
+                        .WithMany("Users")
+                        .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -747,7 +1093,13 @@ namespace PBL3.Migrations
 
             modelBuilder.Entity("PBL3.Models.BacSi", b =>
                 {
+                    b.Navigation("BanGhiYTes");
+
                     b.Navigation("LichHenKhams");
+
+                    b.Navigation("LichLamViecs");
+
+                    b.Navigation("Slots");
                 });
 
             modelBuilder.Entity("PBL3.Models.BanGhiYTe", b =>
@@ -761,6 +1113,12 @@ namespace PBL3.Migrations
 
             modelBuilder.Entity("PBL3.Models.BenhNhan", b =>
                 {
+                    b.Navigation("BanGhiYTes");
+
+                    b.Navigation("DonThuocs");
+
+                    b.Navigation("KetQuaXetNghiems");
+
                     b.Navigation("LichHenKhams");
                 });
 
@@ -779,6 +1137,11 @@ namespace PBL3.Migrations
                     b.Navigation("BanGhiYTe");
                 });
 
+            modelBuilder.Entity("PBL3.Models.LichLamViec", b =>
+                {
+                    b.Navigation("Slots");
+                });
+
             modelBuilder.Entity("PBL3.Models.NhanVienYT", b =>
                 {
                     b.Navigation("KetQuaXetNghiems");
@@ -786,12 +1149,19 @@ namespace PBL3.Migrations
 
             modelBuilder.Entity("PBL3.Models.Role", b =>
                 {
-                    b.Navigation("User");
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("PBL3.Models.Slot", b =>
+                {
+                    b.Navigation("BanGhiYTe");
                 });
 
             modelBuilder.Entity("PBL3.Models.Thuoc", b =>
                 {
                     b.Navigation("ChiTietDonThuocs");
+
+                    b.Navigation("DonThuocs");
                 });
 
             modelBuilder.Entity("PBL3.Models.User", b =>

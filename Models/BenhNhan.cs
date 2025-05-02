@@ -48,5 +48,10 @@ namespace PBL3.Models
     public User User { get; set; } = null!;
 
     public ICollection<LichHenKham> LichHenKhams { get; set; } = [];
+    
+    // Thêm các navigation property mới
+    public ICollection<BanGhiYTe> BanGhiYTes { get; set; } = [];
+    public ICollection<DonThuoc> DonThuocs { get; set; } = [];
+    public ICollection<KetQuaXetNghiem> KetQuaXetNghiems { get; set; } = [];
   }
 }
