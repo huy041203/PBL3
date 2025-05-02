@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PBL3.Data;
 
@@ -11,9 +12,11 @@ using PBL3.Data;
 namespace PBL3.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250502114741_InitialSeed")]
+    partial class InitialSeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -968,21 +971,6 @@ namespace PBL3.Migrations
                             RoleId = 2,
                             UpdatedAt = new DateTime(2023, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Username = "doctor3"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Address = "Hà Nội",
-                            CreatedAt = new DateTime(2023, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "admin@gmail.com",
-                            FullName = "Admin System",
-                            Gender = 0,
-                            IsActive = true,
-                            Password = "AQAAAAEAACcQAAAAEJmq47sOXHAcSZV1UrBbGkmAw8xK5FQfPV9kUK8LWZ1hEMv/wJBLnmTyLO0fLjqKxA==",
-                            PhoneNumber = "0987654321",
-                            RoleId = 1,
-                            UpdatedAt = new DateTime(2023, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Username = "admin"
                         });
                 });
 

@@ -209,8 +209,7 @@ namespace PBL3.Data
           new Khoa { Id = 7, TenKhoa = "Khoa Da liễu", IsActive = true }
       );
 
-      // Sau khi hoàn thành cấu trúc, có thể bỏ comment đoạn code seed data dưới đây
-      /*
+
       // Seed Users for doctors
       modelBuilder.Entity<User>().HasData(
           new User 
@@ -254,6 +253,21 @@ namespace PBL3.Data
               Address = "Hồ Chí Minh", 
               Gender = Gender.Male, 
               RoleId = 2, 
+              IsActive = true,
+              CreatedAt = fixedDate,
+              UpdatedAt = fixedDate
+          },
+          new User 
+          { 
+              Id = 4, 
+              Username = "admin", 
+              Email = "admin@gmail.com", 
+              FullName = "Admin System", 
+              Password = "AQAAAAEAACcQAAAAEJmq47sOXHAcSZV1UrBbGkmAw8xK5FQfPV9kUK8LWZ1hEMv/wJBLnmTyLO0fLjqKxA==",
+              PhoneNumber = "0987654321", 
+              Address = "Hà Nội", 
+              Gender = Gender.Male, 
+              RoleId = 1, // Admin role 
               IsActive = true,
               CreatedAt = fixedDate,
               UpdatedAt = fixedDate
@@ -317,7 +331,6 @@ namespace PBL3.Data
               IsActive = true
           }
       );
-      */
     }
   }
 }
