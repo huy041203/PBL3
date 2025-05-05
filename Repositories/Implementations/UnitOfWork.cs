@@ -19,10 +19,18 @@ public class UnitOfWork : IUnitOfWork
     public IGenericRepository<Role> Roles { get; private set; }
     public IGenericRepository<Thuoc> Thuocs { get; private set; }
     public IGenericRepository<User> Users { get; private set; }
+    
+    public IBacSiRepository BacSiRepo { get; private set; }
+    public IBenhNhanRepository BenhNhanRepo { get; private set; }
+    public ILichHenKhamRepository LichHenKhamRepo { get; private set; }
+    public IDonThuocRepository DonThuocRepo { get; private set; }
+    public IKetQuaXetNghiemRepository KetQuaXetNghiemRepo { get; private set; }
 
     public UnitOfWork(ApplicationDbContext context)
     {
         _context = context;
+        
+        // Khởi tạo generic repositories
         BacSis = new GenericRepository<BacSi>(_context);
         BanGhiYTes = new GenericRepository<BanGhiYTe>(_context);
         BenhNhans = new GenericRepository<BenhNhan>(_context);
@@ -36,6 +44,13 @@ public class UnitOfWork : IUnitOfWork
         Roles = new GenericRepository<Role>(_context);
         Thuocs = new GenericRepository<Thuoc>(_context);
         Users = new GenericRepository<User>(_context);
+        
+        // Khởi tạo repository riêng biệt
+        BacSiRepo = new BacSiRepository(_context);
+        BenhNhanRepo = new BenhNhanRepository(_context);
+        LichHenKhamRepo = new LichHenKhamRepository(_context);
+        DonThuocRepo = new DonThuocRepository(_context);
+        KetQuaXetNghiemRepo = new KetQuaXetNghiemRepository(_context);
     }
 
     public async Task<int> CompleteAsync()

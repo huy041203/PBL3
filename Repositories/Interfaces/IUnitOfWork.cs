@@ -16,5 +16,11 @@ public interface IUnitOfWork : IDisposable
   IGenericRepository<Thuoc> Thuocs { get; }  
   IGenericRepository<User> Users { get; }   
 
+  IBacSiRepository BacSiRepo { get; }
+  IBenhNhanRepository BenhNhanRepo { get; }
+  ILichHenKhamRepository LichHenKhamRepo { get; }
+  IDonThuocRepository DonThuocRepo { get; }
+  IKetQuaXetNghiemRepository KetQuaXetNghiemRepo { get; }
+
   Task<int> CompleteAsync();
 }
