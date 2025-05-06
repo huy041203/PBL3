@@ -20,6 +20,7 @@ builder.Services.AddAuthentication("CookieAuth")
 builder.Services.AddAuthorization();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ILichHenService, LichHenService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

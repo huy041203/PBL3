@@ -33,12 +33,7 @@ namespace PBL3.Controllers
 
         public async Task<IActionResult> Booking()
         {
-            // Lấy danh sách bác sĩ từ cơ sở dữ liệu
-            var bacSis = await _unitOfWork.BacSis.FindAsync(bs => bs.IsActive);
-            
-            // Nếu cần lấy thêm thông tin khoa của bác sĩ, bạn có thể sử dụng Include
-            // Điều này cần được cài đặt trong GenericRepository
-            
+            var bacSis = await _unitOfWork.BacSis.GetAllIncludingAsync(b => b.Khoa);
             return View(bacSis);
         }
 

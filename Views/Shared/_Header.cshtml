@@ -54,28 +54,32 @@
             <li class="header__item topbacsi"><a href="#topbacsi">BÁC SĨ</a></li>
             <li class="header__item datlichhen"><a href="#">ĐẶT LỊCH HẸN</a></li>
             <li class="header__item lienhe"><a href="#footer">LIÊN HỆ</a></li>
-            <li class="header__item dangnhap" id="login-btn"> @if (User.Identity.IsAuthenticated)
-         { 
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">
-            Xin chào, @User.Identity.Name
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end">
-            @if (User.IsInRole("Patient"))
-            {
-              <li><a class="dropdown-item" asp-controller="BenhNhan" asp-action="Profile">Tài khoản</a></li>
-            }
-            @if (User.IsInRole("Doctor"))
-            {
-              <li><a class="dropdown-item" asp-controller="BacSi" asp-action="Profile">Tài khoản</a></li>
-            }
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" asp-controller="Account" asp-action="Logout">Đăng xuất</a></li>
-          </ul>
-        }
-        else
-        {
+            <li class="header__item dangnhap" id="login-btn"> 
+                @if (User.Identity.IsAuthenticated)
+                { 
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Xin chào, @User.Identity.Name
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                            @if (User.IsInRole("Patient"))
+                            {
+                                <li><a class="dropdown-item" asp-controller="BenhNhan" asp-action="Profile">Tài khoản</a></li>
+                            }
+                            @if (User.IsInRole("Doctor"))
+                            {
+                                <li><a class="dropdown-item" asp-controller="BacSi" asp-action="Profile">Tài khoản</a></li>
+                            }
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" asp-controller="Account" asp-action="Logout">Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                }
+                else
+                {
                     <a data-bs-toggle="modal" data-bs-target="#loginModal" style="cursor: pointer;">ĐĂNG NHẬP</a>
-         } </li>
+                }
+            </li>
         </ul>
     </nav>
     <div class="header__search">
@@ -124,5 +128,17 @@
 
     // Khởi động khi DOM đã sẵn sàng
     document.addEventListener("DOMContentLoaded", setupSmoothScroll);
+
+    document.addEventListener('click', function(e) {
+        var dropdown = document.querySelector('.dropdown-menu');
+        var toggle = document.querySelector('.dropdown-toggle');
+        
+        if (dropdown && toggle) {
+            if (!dropdown.contains(e.target) && !toggle.contains(e.target)) {
+                dropdown.classList.remove('show');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        }
+    });
 </script>
 

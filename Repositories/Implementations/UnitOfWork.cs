@@ -19,8 +19,10 @@ public class UnitOfWork : IUnitOfWork
     public IGenericRepository<Role> Roles { get; private set; }
     public IGenericRepository<Thuoc> Thuocs { get; private set; }
     public IGenericRepository<User> Users { get; private set; }
-    
-    public IBacSiRepository BacSiRepo { get; private set; }
+    public IGenericRepository<LichLamViec> LichLamViecs { get; private set; }
+    public IGenericRepository<Slot> Slots { get; private set; }
+
+  public IBacSiRepository BacSiRepo { get; private set; }
     public IBenhNhanRepository BenhNhanRepo { get; private set; }
     public ILichHenKhamRepository LichHenKhamRepo { get; private set; }
     public IDonThuocRepository DonThuocRepo { get; private set; }

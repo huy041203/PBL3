@@ -14,7 +14,10 @@ public interface IUnitOfWork : IDisposable
   IGenericRepository<NhanVienYT> NhanVienYTs { get; }
   IGenericRepository<Role> Roles { get; }
   IGenericRepository<Thuoc> Thuocs { get; }  
-  IGenericRepository<User> Users { get; }   
+  IGenericRepository<User> Users { get; }
+  IGenericRepository<LichLamViec> LichLamViecs { get; }
+  IGenericRepository<Slot> Slots { get; }
+
 
   IBacSiRepository BacSiRepo { get; }
   IBenhNhanRepository BenhNhanRepo { get; }

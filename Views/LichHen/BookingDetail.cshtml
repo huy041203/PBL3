@@ -1,0 +1,285 @@
+@model BacSiDetailViewModel
+
+<section class="booking-detail">
+    <!-- Navigation Bar -->
+    <nav class="nav">
+        <a asp-controller="Home" asp-action="Index" class="nav__home">
+            <img src="~/img/home.png" alt="Home Icon" class="nav__home-svg">
+        </a>
+        <div class="nav__breadcrumb">
+            <a asp-controller="Home" asp-action="Booking">Tìm kiếm</a>
+            <span class="nav__arrow">></span> 
+            @Model.BacSi.HoTen
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Doctor Profile -->
+        <div class="doctor-profile">
+            <div class="doctor-profile__image">
+                <img src="~/img/Group 35.png" alt="@Model.BacSi.HoTen">
+            </div>
+            <div class="doctor-profile__info">
+                <h1 class="doctor-profile__name">@Model.BacSi.HoTen</h1>
+                <p class="doctor-profile__specialty">@Model.BacSi.Khoa?.TenKhoa</p>
+                <div class="doctor-profile__actions">
+                    <button class="doctor-profile__button" id="scroll-to-booking">Đặt lịch khám</button>
+                    <span class="doctor-profile__label">Dành cho người lớn</span>
+                </div>
+                <p class="doctor-profile__price">Giá từ @Model.BacSi.GiaKham.ToString("N0") đ</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Information Tabs -->
+            <div class="info-tabs">
+                <div class="info-tabs__nav">
+                    <button class="info-tabs__button info-tabs__button--active" data-tab="basic-info">Thông tin cơ bản</button>
+                    <button class="info-tabs__button" data-tab="reviews">Đánh giá</button>
+                </div>
+
+                <div class="tab-content">
+                    <!-- Thông tin cơ bản tab -->
+                    <div class="tab-pane active" id="basic-info">
+                        <!-- Highlights Section -->
+                        <div class="highlights">
+                            <h2 class="highlights__title">Điểm nổi bật nhất</h2>
+                            <div class="highlights__content">
+                                @Html.Raw(Model.BacSi.MieuTa)
+                            </div>
+                        </div>
+
+                        <!-- Doctor Information -->
+                        <div class="doctor-info">
+                            <div class="doctor-info__section">
+                                <h3 class="doctor-info__title">Thông tin bác sĩ</h3>
+                                <p class="doctor-info__text">@Model.BacSi.MieuTa</p>
+                            </div>
+
+                            <div class="doctor-info__section">
+                                <h3 class="doctor-info__title">Kinh nghiệm làm việc</h3>
+                                <ul class="experience__list">
+                                    <li class="experience__item">Số năm kinh nghiệm: @Model.BacSi.SoNamKinhNghiem năm</li>
+                                    <li class="experience__item">Phòng khám: @Model.BacSi.PhongKham</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Đánh giá tab -->
+                    <div class="tab-pane" id="reviews" style="display: none;">
+                        <div class="reviews">
+                            <h3 class="reviews__title">Đánh giá từ bệnh nhân</h3>
+                            <div class="reviews__rating">
+                                <div class="reviews__score">@Model.BacSi.DiemDanhGia</div>
+                                <div class="reviews__stars">
+                                    @for (int i = 1; i <= 5; i++)
+                                    {
+                                        if (i <= Math.Floor(Model.BacSi.DiemDanhGia))
+                                        {
+                                            <span class="reviews__star reviews__star--filled">★</span>
+                                        }
+                                        else if (i - Model.BacSi.DiemDanhGia < 1 && i - Model.BacSi.DiemDanhGia > 0)
+                                        {
+                                            <span class="reviews__star reviews__star--half">★</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="reviews__star">★</span>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Form -->
+            <div class="booking" id="booking-section">
+                <h2 class="booking__title">Đặt lịch hẹn</h2>
+                <div class="booking__address">
+                    <span class="booking__address-icon">📍</span> 
+                    @Model.DiaChi
+                </div>
+
+                <form asp-action="DatLichTuDetail" asp-controller="LichHen" method="post" id="booking-form">
+                    <input type="hidden" name="bacSiId" value="@Model.BacSi.Id" />
+                    <input type="hidden" id="selected-slot" name="slotId" value="" />
+
+                    <div class="booking__content">
+                        <div class="booking__form-group">
+                            <label class="booking__label">Thời gian</label>
+                            <div class="booking__input" id="selected-date-display">
+                                <span>Chọn ngày</span>
+                                <span class="booking__calendar-icon">📅</span>
+                            </div>
+                        </div>
+
+                        <div class="calendar">
+                            <div class="calendar__days">
+                                @if (!Model.NgayKhaDung.Any())
+                                {
+                                    <p class="calendar__no-days">Không có lịch khám trong thời gian tới</p>
+                                }
+                                else
+                                {
+                                    @foreach (var ngay in Model.NgayKhaDung)
+                                    {
+                                        <div class="calendar__day" data-date="@ngay.ToString("yyyy-MM-dd")">
+                                            <div class="calendar__day-name">@GetDayOfWeek(ngay)</div>
+                                            <div class="calendar__day-number">@ngay.Day</div>
+                                            <div class="calendar__day-info">@Model.SoChoTrong[ngay] chỗ trống</div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+
+                        <div class="time-slots" id="time-slots-container" style="display:none;">
+                            <!-- Các time slot sẽ được render bằng JavaScript -->
+                        </div>
+
+                        <div class="booking__form-group" id="lydo-group" style="display:none;">
+                            <label class="booking__label">Lý do khám</label>
+                            <textarea name="lyDoKham" class="booking__textarea" placeholder="Nhập lý do khám..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="booking__button" id="submit-button" disabled>Đặt lịch hẹn</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<link rel="stylesheet" href="~/css/booking_detail.css" />
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Tab switching
+            $('.info-tabs__button').click(function() {
+                $('.info-tabs__button').removeClass('info-tabs__button--active');
+                $(this).addClass('info-tabs__button--active');
+                
+                var tabId = $(this).data('tab');
+                $('.tab-pane').hide();
+                $('#' + tabId).show();
+            });
+            
+            // Scroll to booking section
+            $('#scroll-to-booking').click(function() {
+                $('html, body').animate({
+                    scrollTop: $('#booking-section').offset().top - 100
+                }, 500);
+            });
+            
+            // Calendar day selection
+            $('.calendar__day').click(function() {
+                $('.calendar__day').removeClass('calendar__day--active');
+                $(this).addClass('calendar__day--active');
+                
+                var date = $(this).data('date');
+                $('#selected-date-display span:first').text(formatDate(date));
+                
+                // Get time slots for selected date
+                getTimeSlots(date);
+            });
+            
+            // Function to get time slots
+            function getTimeSlots(date) {
+                $('#time-slots-container').show();
+                $('#time-slots-container').html('<div class="loading">Đang tải...</div>');
+                
+                // Convert stored slots data by date
+                var allSlots = @Html.Raw(Json.Serialize(Model.SlotsTheoNgay));
+                var slots = allSlots[date] || [];
+                
+                renderTimeSlots(slots);
+            }
+            
+            // Render time slots
+            function renderTimeSlots(slots) {
+                var morningSlots = slots.filter(s => {
+                    var hours = parseInt(s.gioBatDau.split(':')[0]);
+                    return hours < 12;
+                });
+                
+                var afternoonSlots = slots.filter(s => {
+                    var hours = parseInt(s.gioBatDau.split(':')[0]);
+                    return hours >= 12;
+                });
+                
+                var html = '';
+                
+                if (morningSlots.length > 0) {
+                    html += '<h3 class="time-slots__title">Sáng</h3>';
+                    html += '<div class="time-slots__grid">';
+                    
+                    morningSlots.forEach(function(slot) {
+                        html += `<div class="time-slot" data-slot-id="${slot.id}">
+                            ${formatTime(slot.gioBatDau)} - ${formatTime(slot.gioKetThuc)}
+                        </div>`;
+                    });
+                    
+                    html += '</div>';
+                }
+                
+                if (afternoonSlots.length > 0) {
+                    html += '<h3 class="time-slots__title">Chiều</h3>';
+                    html += '<div class="time-slots__grid">';
+                    
+                    afternoonSlots.forEach(function(slot) {
+                        html += `<div class="time-slot" data-slot-id="${slot.id}">
+                            ${formatTime(slot.gioBatDau)} - ${formatTime(slot.gioKetThuc)}
+                        </div>`;
+                    });
+                    
+                    html += '</div>';
+                }
+                
+                if (morningSlots.length === 0 && afternoonSlots.length === 0) {
+                    html = '<p class="no-slots">Không có slot trống trong ngày này</p>';
+                }
+                
+                $('#time-slots-container').html(html);
+                
+                // Time slot selection
+                $('.time-slot').click(function() {
+                    $('.time-slot').removeClass('time-slot--active');
+                    $(this).addClass('time-slot--active');
+                    
+                    var slotId = $(this).data('slot-id');
+                    $('#selected-slot').val(slotId);
+                    
+                    // Show reason input
+                    $('#lydo-group').show();
+                    
+                    // Enable submit button
+                    $('#submit-button').prop('disabled', false);
+                });
+            }
+            
+            // Format date for display
+            function formatDate(dateString) {
+                var date = new Date(dateString);
+                return date.getDate() + ' thg ' + (date.getMonth() + 1) + ', ' + date.getFullYear();
+            }
+            
+            // Format time
+            function formatTime(timeString) {
+                return timeString;
+            }
+        });
+    </script>
+}
+
+@functions {
+    string GetDayOfWeek(DateTime date)
+    {
+        string[] days = { "Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7" };
+        return days[(int)date.DayOfWeek];
+    }
+}

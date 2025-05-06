@@ -32,7 +32,7 @@
               @bacSi.Khoa.TenKhoa
             </p>
             <div class="doctor-card__actions">
-              <button class="doctor-card__button">Đặt lịch khám</button>
+              <a asp-controller="LichHen" asp-action="BookingDetail" asp-route-bacSiId="@bacSi.Id" class="doctor-card__button">Đặt lịch khám</a>
               <span class="doctor-card__label">Dành cho người lớn</span>
             </div>
             <p class="doctor-card__price">Giá từ @bacSi.GiaKham.ToString("N0") đ</p>
